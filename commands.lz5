@@ -1,0 +1,47 @@
+par setPopSize  unsignedLong
+par setNumMale  unsignedLong
+par setNumFem  unsignedLong
+par setNumOff  unsignedLong
+par setNumGen  unsigned
+par setRep  unsigned
+par setSpecies string double unsigned
+par setGenome  unsigned unsigned double unsigned
+par setMarker  unsigned
+par setTrait unsignedShort unsignedShort double int
+par setQtls unsigned unsigned unsignedShort unsignedShort double double
+par setParTrait unsigned double double double
+par setCorr unsigned unsigned double
+par input
+par calcAdCov
+par adjAdVar
+par calcPolVal
+par calcQtlGenEff
+pop createBasePop unsigned
+pop createGen char unsigned
+rs randomSel unsignedLong
+indsel defCand unsignedShort
+indsel defCand1 char
+indsel iSel unsignedLong char char unsignedShort bool
+report report
+report setTitle string
+report setHeader string
+report setFootnote string
+parRepo parRepo string
+parRepo setParTitle string
+parRepo setParHeader string
+parRepo setParFootnote string
+indSelRepo indSelRepo
+tdRepo tandemRepo
+popRepo popRepo
+indRepo indRepo unsignedShort unsignedShort
+genomeRepo genomeRepo
+repSim createManyGen unsignedShort unsignedLong unsignedLong char unsignedShort bool char unsigned unsigned
+repSim createManySim unsignedShort unsignedLong unsignedLong char unsignedShort bool char unsigned unsigned unsigned bool unsigned
+td tandem unsignedLong unsignedLong char bool unsignedShort char int
+pop1 createBasePopil unsigned
+pop1 createGenil char unsigned
+indsel1 defCandil unsignedShort
+indsel1 defCand1il char
+indsel1 iSelil unsignedLong char char unsignedShort bool
+repSim1 createManyGenil unsignedShort unsignedLong unsignedLong char unsignedShort bool char unsigned unsigned
+repSim1 createManySimil unsignedShort unsignedLong unsignedLong char unsignedShort bool char unsigned unsigned unsigned bool unsigned

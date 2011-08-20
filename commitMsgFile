@@ -1,0 +1,3 @@
+NumGenSel data member added to tandem class;
+tandem.h and tandem.cpp: getNumGen and getSelOrder method created;
+tandemRepo.h and tandemRepo.cpp: generateNumGen and generateSelOrder created.
