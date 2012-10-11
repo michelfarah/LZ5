@@ -1,9 +1,9 @@
 //****************************************************************************************************
-//* Lz5_Commands_db.cpp                                                                              *
+//* loco.h                                                                                           *
 //*                                                                                                  *
-//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),     *
-//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                              *
-//* Dracena, São Paulo, Brazil, 17900-000                                                           *
+//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
+//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
+//* Dracena, São Paulo, Brazil, 17900-000                                                            *
 //*                                                                                                  *
 //* This file is part of LZ5.                                                                        *
 //*                                                                                                  *
@@ -23,46 +23,32 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include"Lz5_Commands_db.h"
-#include<fstream>
-#include"lz5.h"
+#ifndef _INDIVIDUO_H_
+#define _INDIVIDUO_H_
 
-using std::string;
+
+#include "loco.h"
+
 using std::vector;
-using std::find;
 
-namespace lz5
-{  
-  void Lz5_Commands_db::add(vector<string>& a){
-    unsigned int i = 2;
-    object.push_back(a[0]);
-    command.push_back(a[1]);            
-    vector<string> par;  
-    while(i<a.size()){
-      if(a[i]!=""){par.push_back(a[i]);}
-      i++;
-    }
-    parameters.push_back(par);    
-  }
-  
-  
-  short Lz5_Commands_db::seek(string c){    
-    if(c=="help"){help();return -1;}
-    for(unsigned short i=0;i<command.size(); i++){
-      if(command[i]==c){return i;}
-    }
-    std:: cout << std::endl<< "Undefined command: "<<'"'<< c << '"'<< "." << " Try " << '"' << "help" << '"' << "." << std::endl;      
-    return -1;    
-  }  
+/*A Classe individuo contem o genoma de cada individuo*/
+vector<unsigned int> cromossomo();
 
-  void  Lz5_Commands_db::help(){
-    for(unsigned c=0;c<command.size(); c++){
-      std::cout<<command[c]<<"(";
-      for(unsigned p=0;p<parameters[c].size(); p++){
-	std::cout<<green<<parameters[c][p]<<normal;
-	if(p<parameters[c].size()-1)std::cout<<", ";
-      }
-      std::cout<<")"<<std::endl;
-    }
-  }
-}
+class Individuo {
+ private:
+  vector<LocoM> genoma;
+  static vector<unsigned int> cromossomo;
+  vector<float> vgenad;
+  vector<float> vdes;
+  unsigned long id;
+  unsigned idpai;
+  unsigned idmae;
+  char sexo;
+
+ public:
+  inline Individuo():genoma(),vgenad(),vdes(),id(0),idpai(0),idmae(0),sexo('m'){};
+  inline void setGenoma(){cromossomo[cromossomo.size()-1];};
+};
+
+
+#endif

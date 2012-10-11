@@ -1,9 +1,9 @@
 //****************************************************************************************************
-//* indSel.cpp                                                                                       *
+//* loco.h                                                                                           *
 //*                                                                                                  *
-//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),     *
-//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                              *
-//* Dracena, São Paulo, Brazil, 17900-000                                                           *
+//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
+//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
+//* Dracena, São Paulo, Brazil, 17900-000                                                            *
 //*                                                                                                  *
 //* This file is part of LZ5.                                                                        *
 //*                                                                                                  *
@@ -23,27 +23,47 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include "indSel.h"
+#ifndef _LOCO_H_
+#define _LOCO_H_
+
+#include<stdlib.h>
+#include<time.h>
+#include<vector>
+
+#include "alelo.h"
 
 using std::vector;
 
-namespace selection{
+/*A classe LocoM tem como funcao armazenar o genotipo (configuracao alelica) de cada loco marcador que ira compor um individuo*/
+class LocoM{
+ private:
+  Alelo genotipo[2];
+  unsigned short pos;
+ public:
+ LocoM():genotipo(){ 
+    for (int i=0; i<2; i++){
+      Alelo alelo;
+      //testando o estado do alelo
+      if(rand()%2==0){
+	genotipo[i]=alelo;
+      } else {
+	alelo.setAlelo();
+	genotipo[i]=alelo;
+      }
+    }
+  };
+  
+  inline Alelo* getLoco(){return genotipo;};
+};
 
-  void IndSel::exec(lz5::lz5_Result_Struct& e,simulation::Population& pop){
-    if(e.object!=getName())return;
-    if(e.method=="iSel"){
-      if(e._char[0]=='m'){
-	pop.setSelMales(selection(e._unsignedLong[0],e._char[0],e._char[1],e._unsignedShort[0],e._bool[0]));
-      }
-      else{
-	pop.setSelFem(selection(e._unsignedLong[0],e._char[0],e._char[1],e._unsignedShort[0],e._bool[0]));
-      }
-    }
-    else if(e.method=="defCand"){
-      defineCandidates(pop,e._unsignedShort[0]);
-    }
-    else if(e.method=="defCand1"){
-      defineCandidates(pop,e._char[0]);
-    }
-  }
-}
+/*A classe LocoQ tem como funcao armazenar o genotipo de um loco QTL de um individuo */
+class LocoQ:public LocoM {
+ private:
+  float vgl; /*valor genetico do loco */
+ public:
+  inline LocoQ():vgl(0){};
+  inline void setLocoQ(float varad, int qtdlocos){vgl=varad/qtdlocos;};
+  inline float getvgl(){return vgl;};
+};
+
+#endif

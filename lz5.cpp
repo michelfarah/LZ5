@@ -1,9 +1,9 @@
 //****************************************************************************************************
 //* lz5.cpp                                                                                          *
 //*                                                                                                  *
-//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),     *
-//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                              *
-//* Dracena, São Paulo, Brazil, 17900-000                                                           *
+//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
+//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
+//* Dracena, São Paulo, Brazil, 17900-000                                                            *
 //*                                                                                                  *
 //* This file is part of LZ5.                                                                        *
 //*                                                                                                  *
@@ -23,109 +23,48 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-// TODO: pensar em elaborar funções para método interativo e sobrecarregar para método de comandos, o qual normalmente necessita de menos argumento e não deve acessar a classe parameters.
-// TODO: reformular interface de forma que os objetos possam ser criados durante a execução do programa.
-// TODO: pensar se a classe parameters deve agir somente como uma interface e distribuir os parâmetros recebidos para os respectivos objetos. Verificar se funciona. Esse esquema evitaria duplicação de informações.
-
-#include <gsl/gsl_rng.h>
-#include "parameters.h"
-#include "prompt.h"
-#include "population.h"
-#include "ranSel.h"
-#include "indSel.h"
-#include "baseReport.h"
-#include "parRepo.h"
-#include "indSelRepo.h"
-#include "tandemRepo.h"
-#include "popRepo.h"
-#include "indRepo.h"
-#include "genomeRepo.h"
-#include "repSim.h"
-#include "tandem.h"
-
-using lz5::Prompt;
-using lz5::Lz5_Interpreter;
-using simulation::Parameters;
-using simulation::Population;
-using simulation::Population1;
-using selection::RanSel;
-using selection::IndSel;
-using report::BaseReport; 
-using report::ParRepo;
-using report::IndSelRepo;
-using report::TandemRepo;
-using report::PopRepo;
-using report::IndRepo;
-using report::GenomeRepo;
-using simulation::RepSim;
-using simulation::RepSim1;
-using selection::Tandem;
-
-gsl_rng* prand = gsl_rng_alloc(gsl_rng_mt19937);
+#include "alelo.h"
+#include "loco.h"
+#include "individuo.h"
 
 int main(){
-  gsl_rng_set(prand,time(0));
+  srand(time(NULL));
+  //  for(int i=0; i<1; i++){
+      AleloId objeto;
+  //    if (i%2==0){
+  //      objeto.setAlelo();
+  //    }
+      std::cout << "tamanho do Alelo: " << sizeof(objeto.getAlelo()) << std::endl;
+  //    std::cout << "tamanho do Id: " << sizeof(objeto.getId()) << std::endl;
+  //  }
 
-  Prompt promptObject;
-  Lz5_Interpreter interp;
-  interp.readcomm("commands.lz5");
-  lz5_Result_Struct lrs;
-  string prompt;  
-  Parameters par;
-  par.setName("par");
+  LocoM locom;
+  std::cout << "loco marcador" << std::endl;
+  std::cout<<" loco: " << locom.getLoco()[0].getAlelo() << std::endl;
+  std::cout<<" loco: " << locom.getLoco()[1].getAlelo() << std::endl;
+  std::cout<<"Consumo mem: " << sizeof(locom.getLoco()) << std::endl;
 
-  Population pop(par);
-  pop.setName("pop");
-  Population1 pop1(par);
-  pop1.setName("pop1");
-  
-  RanSel rs;
-  rs.setName("rs");
-  IndSel indsel;
-  indsel.setName("indsel");
+  LocoQ locoq;
+  float varad=10;
+  int qtdlocos=5;
+  locoq.setLocoQ(varad,qtdlocos);
+  std::cout<<"Loco QTL" << std::endl;
+  std::cout<<" loco: " << locoq.getLoco()[0].getAlelo() << std::endl;
+  std::cout<<" loco: " << locoq.getLoco()[1].getAlelo() << std::endl;
+  std::cout<<" vgl: " << locoq.getvgl() << std::endl;
+  std::cout<<"Consumo mem loco: " << sizeof(locoq.getLoco()) << std::endl;
+  std::cout<<"Consumo mem vgl: " << sizeof(locoq.getvgl()) << std::endl;
+  Individuo ind;
 
-  Tandem td;
-  td.setName("td");
 
-  ParRepo parRepo;
-  parRepo.setName("parRepo");
-  
-  IndSelRepo iSelRepo;
-  iSelRepo.setName("iSelRepo");
-  
-  TandemRepo tdRepo;
-  tdRepo.setName("tdRepo");
 
-  PopRepo popRepo;
-  popRepo.setName("popRepo");
- 
-  IndRepo indRepo;
-  indRepo.setName("indRepo");
- 
-  GenomeRepo genomeRepo;
-  genomeRepo.setName("genomeRepo");
-  
-  RepSim repSim;
-  repSim.setName("repSim");
-  RepSim1 repSim1;
-  repSim1.setName("repSim1");
-  
-  while(true){
-    prompt=promptObject.get("(lz5)> ");
-    if(prompt=="quit"||prompt=="quit()"){return 0;}    
-    lrs = interp.verify(prompt);
-    par.exec(lrs);
-    pop.exec(lrs,par);
-    pop1.exec(lrs,par);
-    indsel.exec(lrs,pop);
-    parRepo.exec(lrs,par);
-    //iSelRepo.exec(lrs,indsel,par);
-    tdRepo.exec(lrs,td);
-    popRepo.exec(lrs,pop,par);
-    indRepo.exec(lrs,pop,par);
-    genomeRepo.exec(lrs,par);
-    repSim.exec(lrs,pop,indsel,par,popRepo);
-    td.exec(lrs,par,pop);
-  }  
+
+  vector<Alelo> gen;
+  std::cout << "Tamanho vector: " << sizeof(gen) << std::endl;
+
+  unsigned int i=1; 
+
+
   return 0;
 }
+

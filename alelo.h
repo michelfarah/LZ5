@@ -1,9 +1,9 @@
 //****************************************************************************************************
-//* indRepo.h                                                                                         *
+//* alelo.h                                                                                          *
 //*                                                                                                  *
-//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),     *
-//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                              *
-//* Dracena, São Paulo, Brazil, 17900-000                                                           *
+//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
+//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
+//* Dracena, São Paulo, Brazil, 17900-000                                                            *
 //*                                                                                                  *
 //* This file is part of LZ5.                                                                        *
 //*                                                                                                  *
@@ -23,39 +23,34 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#ifndef __IND_REPO__
-#define __IND_REPO__
+#ifndef _ALELO_H_
+#define _ALELO_H_
 
-#include <iostream>
-#include <string>
-#include "population.h"
-#include "individual.h"
-#include "parameters.h"
+#include<iostream>
 
-using std::string;
+/*A classe alelo tem como funcao representar um alelo, o qual pode ser um alelo marcador
+ * ou um alelo com efeito medio
+ * */
+class Alelo{
+ private:
+  bool estado;
+ public:
+  inline Alelo():estado(false){}
+  inline void setAlelo(){estado=true;}
+  inline bool getAlelo(){return estado;}
+};
 
-namespace report{
-  
-  class IndRepo{
-  private:
-    string name;
-    string title;
-    string header;
-    string footnote;
-  public:
-    inline IndRepo():name(),title("Report"),header(),footnote(){};
-    inline IndRepo(string t,string h,string f):name(),title(t),header(h),footnote(f){};
-    
-    
-    void print(simulation::Individual& ind,simulation::Parameters& par);
-    
-    //Methods required by the Interface Module - BEGINNING
-    inline void setName(string n){name=n;}
-    inline string getName()const {return name;}
-    
-    void exec(lz5_Result_Struct& e,simulation::Population& pop,simulation::Parameters& par);
-    //Methods required by the Interface Module - END
-  };
-  
-}
+
+/*A classe AleloId tem como finalidade criar um alelo marcador com identificao para estudos que envolvem o conceito de locos identicos por descendencia (ibd).*/
+class AleloId:public Alelo{
+private:
+  static unsigned int cont;
+  unsigned int id;
+public:
+  inline AleloId():Alelo(),id(cont){cont++;}
+  inline unsigned int getId(){return id;}
+};
+
+unsigned int AleloId::cont=0;
+
 #endif
