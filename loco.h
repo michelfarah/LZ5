@@ -35,25 +35,15 @@
 using std::vector;
 
 /*A classe LocoM tem como funcao armazenar o genotipo (configuracao alelica) de cada loco marcador que ira compor um individuo*/
+
 class LocoM{
  private:
-  Alelo genotipo[2];
+  vector <Alelo*> genotipo;
   unsigned short pos;
  public:
- LocoM():genotipo(){ 
-    for (int i=0; i<2; i++){
-      Alelo alelo;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo[i]=alelo;
-      } else {
-	alelo.setAlelo();
-	genotipo[i]=alelo;
-      }
-    }
-  };
-  
-  inline Alelo* getLoco(){return genotipo;};
+ LocoM():genotipo(){};
+  void setLoco(bool tipo);
+  inline vector<Alelo*> getLoco(){ return genotipo;};
 };
 
 /*A classe LocoQ tem como funcao armazenar o genotipo de um loco QTL de um individuo */
@@ -62,8 +52,8 @@ class LocoQ:public LocoM {
   float vgl; /*valor genetico do loco */
  public:
   inline LocoQ():vgl(0){};
-  inline void setLocoQ(float varad, int qtdlocos){vgl=varad/qtdlocos;};
-  inline float getvgl(){return vgl;};
+  inline void setVGL(float varad, unsigned int qtdQTL){vgl=varad/qtdQTL;};
+  inline float getVGL(){return vgl;};
 };
 
 #endif

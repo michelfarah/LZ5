@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* loco.h                                                                                           *
+//* individuo.h                                                                                      *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -26,28 +26,15 @@
 #ifndef _INDIVIDUO_H_
 #define _INDIVIDUO_H_
 
-
 #include "loco.h"
-
-using std::vector;
-
-/*A Classe individuo contem o genoma de cada individuo*/
-vector<unsigned int> cromossomo();
 
 class Individuo {
  private:
-  vector<LocoM> genoma;
-  static vector<unsigned int> cromossomo;
-  vector<float> vgenad;
-  vector<float> vdes;
-  unsigned long id;
-  unsigned idpai;
-  unsigned idmae;
-  char sexo;
-
+  LocoM *genoma[2];
  public:
-  inline Individuo():genoma(),vgenad(),vdes(),id(0),idpai(0),idmae(0),sexo('m'){};
-  inline void setGenoma(){cromossomo[cromossomo.size()-1];};
+ Individuo():genoma(){};
+  void setGenoma(char tipo);
+  inline LocoM* getGenoma(unsigned int i){return genoma[i];};
 };
 
 

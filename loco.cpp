@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* alelo.h                                                                                          *
+//* loco.cpp                                                                                         *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -23,34 +23,37 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#ifndef _ALELO_H_
-#define _ALELO_H_
+#include<stdlib.h>
+#include<time.h>
 
-#include<iostream>
+#include "loco.h"
 
-/*A classe alelo tem como funcao representar um alelo, o qual pode ser um alelo marcador
- * ou um alelo com efeito medio
- * */
-class Alelo{
- private:
-  bool estado;
- public:
-  inline Alelo():estado(false){}
-  inline void setAlelo(){estado=true;}
-  inline bool getAlelo(){return estado;}
+
+void LocoM::setLoco(bool tipo){
+  if (tipo==0){
+    Alelo *ptralelo;
+    for (int i=0; i<2; i++){
+      Alelo l;
+      ptralelo=&l;
+      //testando o estado do alelo
+      if(rand()%2==0){
+	genotipo.push_back(ptralelo);
+      } else {
+	ptralelo -> setAlelo();
+	genotipo.push_back(ptralelo);
+      }
+    }
+  } else {
+    for (int i=0; i<2; i++){
+      Alelo *ptralelo;
+      ptralelo = new AleloId;
+      //testando o estado do alelo
+      if(rand()%2==0){
+	genotipo.push_back(ptralelo);
+      } else {
+	ptralelo -> setAlelo();
+	genotipo.push_back(ptralelo);
+      }
+    }
+  }
 };
-
-
-/*A classe AleloId tem como finalidade criar um alelo marcador com identificao para estudos que envolvem o conceito de locos identicos por descendencia (ibd).*/
-class AleloId:public Alelo{
-private:
-  static unsigned int cont;
-  unsigned int id;
-public:
-  inline AleloId():Alelo(),id(cont){cont++;}
-  inline unsigned int getId(){return id;}
-};
-
-
-
-#endif

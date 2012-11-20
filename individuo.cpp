@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* alelo.h                                                                                          *
+//* individuo.cpp                                                                                    *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -23,34 +23,17 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#ifndef _ALELO_H_
-#define _ALELO_H_
+#include "individuo.h"
+
+#include<vector>
+#include<stdlib.h>
+#include<time.h>
 
 #include<iostream>
+using std::vector;
 
-/*A classe alelo tem como funcao representar um alelo, o qual pode ser um alelo marcador
- * ou um alelo com efeito medio
- * */
-class Alelo{
- private:
-  bool estado;
- public:
-  inline Alelo():estado(false){}
-  inline void setAlelo(){estado=true;}
-  inline bool getAlelo(){return estado;}
-};
+//vector<unsigned int> Individuo::cromossomo;
 
-
-/*A classe AleloId tem como finalidade criar um alelo marcador com identificao para estudos que envolvem o conceito de locos identicos por descendencia (ibd).*/
-class AleloId:public Alelo{
-private:
-  static unsigned int cont;
-  unsigned int id;
-public:
-  inline AleloId():Alelo(),id(cont){cont++;}
-  inline unsigned int getId(){return id;}
-};
-
-
-
-#endif
+void Individuo::setGenoma(char tipo){
+  LocoM *loco;
+}
