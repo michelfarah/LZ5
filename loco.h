@@ -36,24 +36,24 @@ using std::vector;
 
 /*A classe LocoM tem como funcao armazenar o genotipo (configuracao alelica) de cada loco marcador que ira compor um individuo*/
 
-class LocoM{
+class Loco{
  private:
   vector <Alelo*> genotipo;
   unsigned short pos;
- public:
- LocoM():genotipo(){};
-  void setLoco(bool tipo);
-  inline vector<Alelo*> getLoco(){ return genotipo;};
-};
+  static float vglpol[3]; /*valores geneticos dos locos poligenicos*/
+  static float vglqtl[3]; /*valores geneticos dos locos QTL*/
 
-/*A classe LocoQ tem como funcao armazenar o genotipo de um loco QTL de um individuo */
-class LocoQ:public LocoM {
- private:
-  float vgl; /*valor genetico do loco */
  public:
-  inline LocoQ():vgl(0){};
-  inline void setVGL(float varad, unsigned int qtdQTL){vgl=varad/qtdQTL;};
-  inline float getVGL(){return vgl;};
+ Loco():genotipo(){};
+
+  inline vector<Alelo*> getLoco(){ return genotipo;};
+  float getVGLpol(unsigned int i){ return vglpol[i]; };
+  
+  inline float getVGLQTL(unsigned int i){return vglqtl[i];};
+
+  void setLoco(bool tipo);
+  void setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl);
+  void setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdlqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl);
 };
 
 #endif

@@ -26,16 +26,47 @@
 #ifndef _INDIVIDUO_H_
 #define _INDIVIDUO_H_
 
+#include<vector>
+#include<typeinfo>
+#include<algorithm>
+
 #include "loco.h"
 
 class Individuo {
  private:
-  LocoM *genoma[2];
+  vector < Loco* > genoma;
+  static vector <unsigned int> posTLocos;
+  static vector < unsigned int > tamCrom;
+  static unsigned int cont_id;
+  unsigned int id;
+  unsigned int idp;
+  unsigned int idm;
+  bool sexo;
+  float vres;
  public:
- Individuo():genoma(){};
-  void setGenoma(char tipo);
-  inline LocoM* getGenoma(unsigned int i){return genoma[i];};
+ Individuo():genoma(),sexo(false),id(cont_id),idp(0),idm(0),vres(0){cont_id++;}; 
+
+  void criarIndB(bool tipoid, float varres, float mediavarres);
+
+  void setposTLocos(unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl);
+  void setGenoma(bool tipoid);
+  void setTamCrom(unsigned int qtdlocos, unsigned int qtdcrom);
+
+  float getVad(); 
+  inline void setSexo(){sexo=true;}
+  inline void setVres(float varres, float mediavarres){vres=varres/mediavarres;}
+
+  inline vector<unsigned int> getposTLocos(){return posTLocos;}
+  inline vector<Loco*> getGenoma(){return genoma;}
+  inline unsigned int getId(){return id;}
+  inline unsigned int getIdp(){return idp;}
+  inline unsigned int getIdm(){return idm;}
+  inline bool getSexo(){return sexo;}
+  inline float getVres(){return vres;}
+  inline float getFen(){return getVad()+getVres();}
+  
+ 
 };
 
-
 #endif
+  

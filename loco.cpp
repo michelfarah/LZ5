@@ -25,16 +25,17 @@
 
 #include<stdlib.h>
 #include<time.h>
+#include <cmath>
 
 #include "loco.h"
 
+using namespace std;
 
-void LocoM::setLoco(bool tipo){
+void Loco::setLoco(bool tipo){
   if (tipo==0){
-    Alelo *ptralelo;
     for (int i=0; i<2; i++){
-      Alelo l;
-      ptralelo=&l;
+      Alelo *ptralelo;
+      ptralelo=new Alelo;
       //testando o estado do alelo
       if(rand()%2==0){
 	genotipo.push_back(ptralelo);
@@ -57,3 +58,20 @@ void LocoM::setLoco(bool tipo){
     }
   }
 };
+
+void Loco::setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl){
+  vglpol[0]=-((varad*(1-(pvaqtl/100))/sqrt(2*freqp*(1-freqp)))/(qtdlocos-qtdqtl-qtdmarcador));
+  vglpol[1]=0;
+  vglpol[2]=((varad*(1-(pvaqtl/100))/sqrt(2*freqp*(1-freqp)))/(qtdlocos-qtdqtl-qtdmarcador));  
+};
+
+void Loco::setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl){
+  vglqtl[0]=-((varad*(pvaqtl/100)/sqrt(2*freqpqtl*(1-freqpqtl)))/qtdqtl);
+  vglqtl[1]=0;
+  vglqtl[2]=((varad*(pvaqtl/100)/sqrt(2*freqpqtl*(1-freqpqtl)))/qtdqtl); 
+};
+
+
+float Loco::vglpol[3];
+float Loco::vglqtl[3];
+

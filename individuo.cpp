@@ -23,17 +23,98 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include "individuo.h"
+
 
 #include<vector>
 #include<stdlib.h>
 #include<time.h>
+#include<gsl/gsl_rng.h>
 
 #include<iostream>
+
+#include "individuo.h"
+
 using std::vector;
 
-//vector<unsigned int> Individuo::cromossomo;
-
-void Individuo::setGenoma(char tipo){
-  LocoM *loco;
+void Individuo::criarIndB(bool tipoid, float varres, float mediavarres){
+  setGenoma(tipoid);
+  if (rand()%2==1){
+    setSexo();
+  }
+  setVres(varres, mediavarres);
 }
+
+float Individuo::getVad()
+{
+  float sum=0;
+  unsigned int salelo=0;
+  for(unsigned int i=0; i<posTLocos.size();i++){
+    if(posTLocos[i]==0){
+      salelo=genoma[i]->getLoco()[0]->getAlelo()+genoma[i]->getLoco()[1]->getAlelo();
+      sum=genoma[i]->getVGLpol(salelo)+sum;
+    } else {
+      if(posTLocos[i]==1){
+	salelo=genoma[i]->getLoco()[0]->getAlelo()+genoma[i]->getLoco()[1]->getAlelo();
+	sum=genoma[i]->getVGLQTL(salelo)+sum;
+      }
+    }
+  }
+  return sum;
+} 
+
+
+
+void Individuo::setGenoma(bool tipoid)
+{
+  for(unsigned int i=0; i<posTLocos.size(); i++){
+    Loco *ptrloco;
+    ptrloco=new Loco;
+    ptrloco->setLoco(tipoid);
+    genoma.push_back(ptrloco);
+  }
+};
+
+void Individuo::setTamCrom(unsigned int qtdlocos, unsigned int qtdcrom)
+{
+  unsigned int pos = qtdlocos/qtdcrom;
+  tamCrom.push_back(0);
+  for(unsigned int i=0;i<=pos;i++){
+    tamCrom.push_back(tamCrom[i]+qtdcrom);
+  }
+};
+
+void Individuo::setposTLocos(unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl)
+{
+
+  Loco l;
+  l.setVGLPol(varad, qtdlocos, qtdqtl, qtdmarcador, freqp, pvaqtl);
+  l.setVGLQTL(varad, qtdlocos, qtdqtl, qtdmarcador, freqpqtl, pvaqtl);
+
+  for (unsigned int i=0;i<qtdlocos;i++){
+    posTLocos.push_back(0);
+  }
+  gsl_rng* pos = gsl_rng_alloc(gsl_rng_mt19937);
+  gsl_rng_set(pos,time(0));
+  for (unsigned int i=0;i<qtdqtl;i++){
+    int q = gsl_rng_uniform_int(pos,qtdlocos);
+    if(posTLocos[q]==0){
+      posTLocos[q]=1;
+    } else {
+      i--;
+    }
+  }
+  gsl_rng_set(pos,time(0));
+  for (unsigned int i=0;i<qtdmarcador;i++){
+    int q = gsl_rng_uniform_int(pos,qtdlocos);
+    if(posTLocos[q]==0){
+      posTLocos[q]=2;
+    } else {
+      i--;
+    }
+  }
+  gsl_rng_free(pos);
+};
+
+vector <unsigned int>Individuo::posTLocos;
+unsigned int Individuo::cont_id=0;
+vector<unsigned int>Individuo::tamCrom;
