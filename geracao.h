@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* loco.cpp                                                                                         *
+//* geracao.h                                                                                        *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -23,55 +23,40 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include<stdlib.h>
-#include<time.h>
-#include <cmath>
+#ifndef _GERACAO_H_
+#define _GERACAO_H_
 
-#include "loco.h"
+#include<vector>
+#include<algorithm>
+#include<math.h>
 
-using namespace std;
+#include "individuo.h"
 
-void Loco::setLoco(bool tipo){
-  if (tipo==0){
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo=new Alelo;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
-    }
-  } else {
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo = new AleloId;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
-    }
-  }
+using std::vector;
+
+class Geracao {
+private:
+  vector<Individuo*>geracao;
+  unsigned int idg;
+  static unsigned int contg;
+  float varadg;
+  float varresg;
+  float varfeng;
+  float mediag;
+public:
+  Geracao():geracao(),idg(contg),varadg(),varresg(),varfeng(),mediag(){contg++;};
+  void setGeracao(unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom);
+  void setVaradg();
+  void setVarresg();
+  void setMediag();
+
+  inline unsigned int getTamGer(){return geracao.size();};
+  inline vector<Individuo*> getGeracao(){return geracao;};
+  inline float getVaradg(){return varadg;};
+  inline float getVarresg(){return varresg;};
+  inline float getVarfeng(){return getVaradg()+getVarresg();};
+  inline float getMediag(){return mediag;};
+
 };
 
-void Loco::setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl){
-  vglpol[0]=-sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador)));
-  vglpol[1]=0;
-  vglpol[2]=sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador))); 
-};
-
-void Loco::setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl){
-  vglqtl[0]=-sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-  vglqtl[1]=0;
-  vglqtl[2]=sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-};
-
-
-float Loco::vglpol[3];
-float Loco::vglqtl[3];
-
+#endif

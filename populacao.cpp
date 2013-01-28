@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* loco.cpp                                                                                         *
+//* populacao.cpp                                                                                    *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -23,55 +23,57 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include<stdlib.h>
-#include<time.h>
-#include <cmath>
+#include "populacao.h"
 
-#include "loco.h"
+void Populacao::criarPopBase(unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom){
+  Geracao *g;
+  g=new Geracao;
+  g->setGeracao(tampb, tipo, varres, mediavarres, qtdlocos, qtdqtl, qtdmarcador, varad, freqp, freqpqtl, pvaqtl, qtdcrom);
+  populacao.push_back(g);
+};
 
-using namespace std;
-
-void Loco::setLoco(bool tipo){
-  if (tipo==0){
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo=new Alelo;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
-    }
-  } else {
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo = new AleloId;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
+float Populacao::getVaradp(){
+  float media=0;
+  float sum=0;
+  float varadp=0;
+  unsigned int n=0;
+  for(unsigned int i=0;i<populacao.size();i++){
+    for(unsigned int j=0;j<populacao[i]->getTamGer();j++){
+      media=populacao[i]->getGeracao()[j]->getVad()+media;
+      n=n+1;
     }
   }
+  media=media/n;
+  for (unsigned int i=0;i<populacao.size();i++){
+    for (unsigned int j=0;j<populacao[i]->getTamGer();j++){
+      sum=pow((populacao[i]->getGeracao()[j]->getVad()-media),2)+sum;
+    }
+  }
+  varadp=sum/(n-1);
+  return varadp;
 };
 
-void Loco::setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl){
-  vglpol[0]=-sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador)));
-  vglpol[1]=0;
-  vglpol[2]=sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador))); 
+float Populacao::getVarresp(){
+  float media=0;
+  float sum=0;
+  float varresp=0;
+  unsigned int n=0;
+  for(unsigned int i=0;i<populacao.size();i++){
+    for(unsigned int j=0;j<populacao[i]->getTamGer();j++){
+      media=populacao[i]->getGeracao()[j]->getVres()+media;
+      n=n+1;
+    }
+  }
+  media=media/n;
+  for (unsigned int i=0;i<populacao.size();i++){
+    for (unsigned int j=0;j<populacao[i]->getTamGer();j++){
+      sum=pow((populacao[i]->getGeracao()[j]->getVres()-media),2)+sum;
+    }
+  }
+  varresp=sum/(n-1);
+  return varresp;
 };
 
-void Loco::setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl){
-  vglqtl[0]=-sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-  vglqtl[1]=0;
-  vglqtl[2]=sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
+float Populacao::getVarfenp(){
+  return getVaradp()+getVarresp();
 };
-
-
-float Loco::vglpol[3];
-float Loco::vglqtl[3];
-

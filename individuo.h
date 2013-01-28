@@ -54,7 +54,7 @@ class Individuo {
 
   float getVad(); 
   inline void setSexo(){sexo=true;}
-  inline void setVres(float varres, float mediavarres){vres=varres/mediavarres;}
+  void setVres(float varres, float mediavarres);
 
   inline vector<unsigned int> getposTLocos(){return posTLocos;}
   inline vector<Loco*> getGenoma(){return genoma;}

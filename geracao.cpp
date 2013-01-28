@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* loco.cpp                                                                                         *
+//* geracao.cpp                                                                                      *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -23,55 +23,57 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include<stdlib.h>
-#include<time.h>
-#include <cmath>
+#include "geracao.h"
 
-#include "loco.h"
-
-using namespace std;
-
-void Loco::setLoco(bool tipo){
-  if (tipo==0){
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo=new Alelo;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
-    }
-  } else {
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo = new AleloId;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
+void Geracao::setGeracao(unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom){
+  if(contg==0){
+    Individuo *pind;
+    pind=new Individuo;
+    pind->setposTLocos(qtdlocos,qtdqtl,qtdmarcador,varad,freqp,freqpqtl,pvaqtl);
+    pind->setTamCrom(qtdlocos,qtdcrom);
+    pind->criarIndB(tipo,varres,mediavarres);
+    geracao.push_back(pind);
+    for(unsigned int i=0; i<tampb-1;i++){
+      Individuo *pind;
+      pind=new Individuo;
+      pind->criarIndB(tipo,varres,mediavarres);
+      geracao.push_back(pind);
     }
   }
 };
 
-void Loco::setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl){
-  vglpol[0]=-sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador)));
-  vglpol[1]=0;
-  vglpol[2]=sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador))); 
+void Geracao::setMediag(){
+  float media = 0;
+  for(unsigned int i=0;i<geracao.size();i++){
+    media=geracao[i]->getVad()+geracao[i]->getVres()+media;
+  }
+  media=media/geracao.size();
 };
 
-void Loco::setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl){
-  vglqtl[0]=-sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-  vglqtl[1]=0;
-  vglqtl[2]=sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
+void Geracao::setVaradg(){
+  float media = 0;
+  float sum=0;
+  for(unsigned int i=0;i<geracao.size();i++){
+    media=geracao[i]->getVad()+media;
+  }
+  media=media/geracao.size();
+  for(unsigned int i=0;i<geracao.size();i++){
+    sum=pow((geracao[i]->getVad()-media),2)+sum;
+  }
+  varadg=sum/geracao.size();
 };
 
+void Geracao::setVarresg(){
+  float media = 0;
+  float sum=0;
+  for(unsigned int i=0;i<geracao.size();i++){
+    media=geracao[i]->getVres()+media;
+  }
+  media=media/geracao.size();
+  for(unsigned int i=0;i<geracao.size();i++){
+    sum=pow((geracao[i]->getVres()-media),2)+sum;
+  }
+  varresg=sum/geracao.size();
+};
 
-float Loco::vglpol[3];
-float Loco::vglqtl[3];
-
+unsigned int Geracao::contg=-1;

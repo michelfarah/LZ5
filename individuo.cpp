@@ -29,6 +29,8 @@
 #include<stdlib.h>
 #include<time.h>
 #include<gsl/gsl_rng.h>
+#include<gsl/gsl_randist.h>
+
 
 #include<iostream>
 
@@ -36,12 +38,19 @@
 
 using std::vector;
 
+extern gsl_rng* p;
+
 void Individuo::criarIndB(bool tipoid, float varres, float mediavarres){
   setGenoma(tipoid);
   if (rand()%2==1){
     setSexo();
   }
   setVres(varres, mediavarres);
+}
+
+void Individuo::setVres(float varres, float mediavarres){
+
+  vres=gsl_ran_gaussian(p,varres)+mediavarres;
 }
 
 float Individuo::getVad()
@@ -61,8 +70,6 @@ float Individuo::getVad()
   }
   return sum;
 } 
-
-
 
 void Individuo::setGenoma(bool tipoid)
 {
@@ -93,28 +100,27 @@ void Individuo::setposTLocos(unsigned int qtdlocos, unsigned int qtdqtl, unsigne
   for (unsigned int i=0;i<qtdlocos;i++){
     posTLocos.push_back(0);
   }
-  gsl_rng* pos = gsl_rng_alloc(gsl_rng_mt19937);
-  gsl_rng_set(pos,time(0));
-  for (unsigned int i=0;i<qtdqtl;i++){
-    int q = gsl_rng_uniform_int(pos,qtdlocos);
-    if(posTLocos[q]==0){
-      posTLocos[q]=1;
-    } else {
-      i--;
+  if(qtdqtl>0){
+    for (unsigned int i=0;i<qtdqtl;i++){
+      int q = gsl_rng_uniform_int(p,qtdlocos);
+      if(posTLocos[q]==0){
+	posTLocos[q]=1;
+      } else {
+	i--;
+      }
     }
   }
-  gsl_rng_set(pos,time(0));
+  gsl_rng_set(p,time(0));
   for (unsigned int i=0;i<qtdmarcador;i++){
-    int q = gsl_rng_uniform_int(pos,qtdlocos);
+    int q = gsl_rng_uniform_int(p,qtdlocos);
     if(posTLocos[q]==0){
       posTLocos[q]=2;
     } else {
       i--;
     }
   }
-  gsl_rng_free(pos);
 };
 
 vector <unsigned int>Individuo::posTLocos;
-unsigned int Individuo::cont_id=0;
+unsigned int Individuo::cont_id=1;
 vector<unsigned int>Individuo::tamCrom;

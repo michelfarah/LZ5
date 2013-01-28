@@ -1,5 +1,5 @@
 //****************************************************************************************************
-//* loco.cpp                                                                                         *
+//* populacao.h                                                                                      *
 //*                                                                                                  *
 //* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *
 //* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *
@@ -23,55 +23,27 @@
 //*                                                                                                  *
 //****************************************************************************************************
 
-#include<stdlib.h>
-#include<time.h>
-#include <cmath>
+#ifndef _POPULACAO_H_
+#define _POPULACAO_H_
 
-#include "loco.h"
+#include<vector>
 
-using namespace std;
+#include "geracao.h"
 
-void Loco::setLoco(bool tipo){
-  if (tipo==0){
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo=new Alelo;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
-    }
-  } else {
-    for (int i=0; i<2; i++){
-      Alelo *ptralelo;
-      ptralelo = new AleloId;
-      //testando o estado do alelo
-      if(rand()%2==0){
-	genotipo.push_back(ptralelo);
-      } else {
-	ptralelo -> setAlelo();
-	genotipo.push_back(ptralelo);
-      }
-    }
-  }
+using std::vector;
+
+class Populacao {
+private:
+  vector<Geracao*>populacao;
+public:
+  Populacao():populacao(){};
+  void criarPopBase(unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom);
+  float getVaradp();
+  float getVarresp();
+  float getVarfenp();
+  void getMediap();
+
+  inline vector<Geracao*> getPopulacao(){return populacao;}
 };
 
-void Loco::setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl){
-  vglpol[0]=-sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador)));
-  vglpol[1]=0;
-  vglpol[2]=sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador))); 
-};
-
-void Loco::setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl){
-  vglqtl[0]=-sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-  vglqtl[1]=0;
-  vglqtl[2]=sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-};
-
-
-float Loco::vglpol[3];
-float Loco::vglqtl[3];
-
+#endif

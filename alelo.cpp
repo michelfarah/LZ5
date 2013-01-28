@@ -25,5 +25,7 @@
 
 #include"alelo.h"
 
+/* Contador para a identificacao do AleloId criado, iniciando com o valor 0 (ZERO) */
+
 unsigned int AleloId::cont=0;
 
