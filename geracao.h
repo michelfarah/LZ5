@@ -34,27 +34,66 @@
 
 using std::vector;
 
+//! Cria uma Geracao que ira constituir uma populacao.
+/*!
+ * A classe Geracao aramazena um conjunto de  Individuos contemporaneos. Esta classe tem como funcao facilitar
+ * o controle da simulacao por Geracao, fornecendo paramentros populacionais para cada geracao criada.
+ */
+
 class Geracao {
 private:
-  vector<Individuo*>geracao;
-  unsigned int idg;
-  static unsigned int contg;
-  float varadg;
-  float varresg;
-  float varfeng;
-  float mediag;
+  vector<Individuo*>geracao; /*! Armazena ponteiros para objetos do tipo Individuo, que ira constituir uma geracao. */
+  unsigned int idg; /*! Armazena a identificacao (ID) de cada geracao criada. */
+  static unsigned int contg; /*! Inteiro static para incrementar a identificacao da geracao criada. */
+  float varadg; /*! Armazena a variancia genetica aditiva da geracao. */
+  float varresg; /*! Armazena a variancia residual da geracao. */
+  float mediag; /*! Armazena a media da caracteristica na geracao. */
 public:
-  Geracao():geracao(),idg(contg),varadg(),varresg(),varfeng(),mediag(){contg++;};
+  Geracao():geracao(),idg(contg),varadg(),varresg(),mediag(){contg++;};
+
+  /*! Metodo para ajustar uma geracao. Se o contg for igual a zero, o simulador cria uma populacao base, 
+   * ajustando todos os paramentros necessarios para realizar a simulacao (Individuo::setposTLocos(), 
+   * Individuo::setTamCrom(), Individuo::criarIndB()).
+   * \param tambp - Tamanho da populacao base;
+   * \param tipo - ver Loco::setLoco();
+   * \param varres - Variancia Residual fornecida pelo usuario;
+   * \param mediavarres - Media da variancia residual fornecida pelo usuario;
+   * \param qtdlocos - Quantidade total de locos que ira constituir o genoma do individuo;
+   * \param qtdqtl - Quantidade de locos QTLs que ira constituir o genoma do individuo;
+   * \param qtdmarcador - Quantidade de locos marcadores no genoma do individuo;
+   * \param varad - Variancia genetica aditiva da caracteristica a ser simulada;
+   * \param freqp - ver Loco::setVGLPol();
+   * \param freqpqtl - ver Loco::setVGLQTL();
+   * \param pvaqtl - ver Loco::setVGLPol();
+   * \param qtdcrom - Quantidade de cromossomos que ira compor o genoma do individuo.
+   */
   void setGeracao(unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom);
+
+  /*! Ajusta a variancia genetica aditiva da caracterista na geracao. */
   void setVaradg();
+
+  /*! Ajusta a variancia residual (ambiente) da caracteristica na geracao. */ 
   void setVarresg();
+
+  /*! Ajusta a media da caracteristica na geracao. */
   void setMediag();
 
-  inline unsigned int getTamGer(){return geracao.size();};
+  /*! Retorna o numero de individuos que constitui a geracao. */
+  inline int getTamGer(){return geracao.size();};
+
+  /*! Retorna o vetor de individuo da geracao. */
   inline vector<Individuo*> getGeracao(){return geracao;};
+
+  /*! Retorna a variancia genetica aditiva da geracao */
   inline float getVaradg(){return varadg;};
+
+  /*! Retorna a variancia residual da geracao */
   inline float getVarresg(){return varresg;};
+
+  /*! Retorna a variancia fenotipica da geracao */
   inline float getVarfeng(){return getVaradg()+getVarresg();};
+
+  /*! Retorna a media da caracterista na geracao */
   inline float getMediag(){return mediag;};
 
 };

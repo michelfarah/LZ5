@@ -1,0 +1,103 @@
+.TH "Geracao" 3 "Terça, 29 de Janeiro de 2013" "Version lz5_turbo" "LZ5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Geracao \- 
+.PP
+Cria uma \fBGeracao\fP que ira constituir uma populacao\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <geracao\&.h>\fP
+.SS "Membros públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBGeracao\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetGeracao\fP (unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom)"
+.br
+.ti -1c
+.RI "void \fBsetVaradg\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetVarresg\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMediag\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTamGer\fP ()"
+.br
+.ti -1c
+.RI "vector< \fBIndividuo\fP * > \fBgetGeracao\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVaradg\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVarresg\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVarfeng\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetMediag\fP ()"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Cria uma \fBGeracao\fP que ira constituir uma populacao\&. 
+
+A classe \fBGeracao\fP aramazena um conjunto de Individuos contemporaneos\&. Esta classe tem como funcao facilitar o controle da simulacao por \fBGeracao\fP, fornecendo paramentros populacionais para cada geracao criada\&. 
+.SH "Documentação dos Construtores & Destrutor"
+.PP 
+.SS "\fBGeracao::Geracao\fP ()\fC [inline]\fP"Armazena a media da caracteristica na geracao\&. 
+.SH "Documentação dos métodos"
+.PP 
+.SS "vector<\fBIndividuo\fP*> \fBGeracao::getGeracao\fP ()\fC [inline]\fP"Retorna o vetor de individuo da geracao\&. 
+.SS "float \fBGeracao::getMediag\fP ()\fC [inline]\fP"Retorna a media da caracterista na geracao 
+.SS "int \fBGeracao::getTamGer\fP ()\fC [inline]\fP"Retorna o numero de individuos que constitui a geracao\&. 
+.SS "float \fBGeracao::getVaradg\fP ()\fC [inline]\fP"Retorna a variancia genetica aditiva da geracao 
+.SS "float \fBGeracao::getVarfeng\fP ()\fC [inline]\fP"Retorna a variancia fenotipica da geracao 
+.SS "float \fBGeracao::getVarresg\fP ()\fC [inline]\fP"Retorna a variancia residual da geracao 
+.SS "void \fBGeracao::setGeracao\fP (unsigned inttampb, booltipo, floatvarres, floatmediavarres, unsigned intqtdlocos, unsigned intqtdqtl, unsigned intqtdmarcador, floatvarad, floatfreqp, floatfreqpqtl, floatpvaqtl, unsigned intqtdcrom)"Metodo para ajustar uma geracao\&. Se o contg for igual a zero, o simulador cria uma populacao base, ajustando todos os paramentros necessarios para realizar a simulacao (\fBIndividuo::setposTLocos()\fP, \fBIndividuo::setTamCrom()\fP, \fBIndividuo::criarIndB()\fP)\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fItambp\fP - Tamanho da populacao base; 
+.br
+\fItipo\fP - ver \fBLoco::setLoco()\fP; 
+.br
+\fIvarres\fP - Variancia Residual fornecida pelo usuario; 
+.br
+\fImediavarres\fP - Media da variancia residual fornecida pelo usuario; 
+.br
+\fIqtdlocos\fP - Quantidade total de locos que ira constituir o genoma do individuo; 
+.br
+\fIqtdqtl\fP - Quantidade de locos QTLs que ira constituir o genoma do individuo; 
+.br
+\fIqtdmarcador\fP - Quantidade de locos marcadores no genoma do individuo; 
+.br
+\fIvarad\fP - Variancia genetica aditiva da caracteristica a ser simulada; 
+.br
+\fIfreqp\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIfreqpqtl\fP - ver \fBLoco::setVGLQTL()\fP; 
+.br
+\fIpvaqtl\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIqtdcrom\fP - Quantidade de cromossomos que ira compor o genoma do individuo\&. 
+.RE
+.PP
+
+.SS "void \fBGeracao::setMediag\fP ()"Ajusta a media da caracteristica na geracao\&. 
+.SS "void \fBGeracao::setVaradg\fP ()"Ajusta a variancia genetica aditiva da caracterista na geracao\&. 
+.SS "void \fBGeracao::setVarresg\fP ()"Ajusta a variancia residual (ambiente) da caracteristica na geracao\&. 
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para LZ5 a partir do código fonte\&.

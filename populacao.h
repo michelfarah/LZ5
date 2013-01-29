@@ -32,17 +32,47 @@
 
 using std::vector;
 
+//! Cria uma Populacao, constituida de diversas Geracoes
+/*!
+ * A classe Populacao tem como funcao armazenar as diversas geracoes simuladas, bem como retornar os parametros
+ * geneticos e populacionais da populacao simulada.
+ */
 class Populacao {
 private:
-  vector<Geracao*>populacao;
+  vector<Geracao*>populacao; /*!< Armazena ponteiros para objetos da classe Geracao. */
 public:
   Populacao():populacao(){};
+
+  /*! Metodo para criar uma populacao base (geracao 0), que ira constituir os individuos fundadores da 
+   * populacao simulada. 
+   * \param tambp - Tamanho da populacao base;
+   * \param tipo - ver Loco::setLoco();
+   * \param varres - Variancia Residual fornecida pelo usuario;
+   * \param mediavarres - Media da variancia residual fornecida pelo usuario;
+   * \param qtdlocos - Quantidade total de locos que ira constituir o genoma do individuo;
+   * \param qtdqtl - Quantidade de locos QTLs que ira constituir o genoma do individuo;
+   * \param qtdmarcador - Quantidade de locos marcadores no genoma do individuo;
+   * \param varad - Variancia genetica aditiva da caracteristica a ser simulada;
+   * \param freqp - ver Loco::setVGLPol();
+   * \param freqpqtl - ver Loco::setVGLQTL();
+   * \param pvaqtl - ver Loco::setVGLPol();
+   * \param qtdcrom - Quantidade de cromossomos que ira compor o genoma do individuo.
+   */
   void criarPopBase(unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom);
+
+  /*! Retorna a variancia genetica aditiva da populacao. */
   float getVaradp();
+
+  /*! Retorna a variancia residual da populacao. */
   float getVarresp();
+
+  /*! Retorna a variancia fenotipica da populacao. */
   float getVarfenp();
+
+  /*! Retorna a media da caracterista na populacao. */
   void getMediap();
 
+  /*! Retorna o vetor de geracoes que constitui uma populacao. */
   inline vector<Geracao*> getPopulacao(){return populacao;}
 };
 

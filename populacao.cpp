@@ -30,7 +30,7 @@ void Populacao::criarPopBase(unsigned int tampb, bool tipo, float varres, float 
   g=new Geracao;
   g->setGeracao(tampb, tipo, varres, mediavarres, qtdlocos, qtdqtl, qtdmarcador, varad, freqp, freqpqtl, pvaqtl, qtdcrom);
   populacao.push_back(g);
-};
+}
 
 float Populacao::getVaradp(){
   float media=0;
@@ -51,7 +51,7 @@ float Populacao::getVaradp(){
   }
   varadp=sum/(n-1);
   return varadp;
-};
+}
 
 float Populacao::getVarresp(){
   float media=0;
@@ -72,8 +72,8 @@ float Populacao::getVarresp(){
   }
   varresp=sum/(n-1);
   return varresp;
-};
+}
 
 float Populacao::getVarfenp(){
   return getVaradp()+getVarresp();
-};
+}

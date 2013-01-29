@@ -1,0 +1,210 @@
+\hypertarget{class_populacao}{\section{\-Referência à classe \-Populacao}
+\label{class_populacao}\index{\-Populacao@{\-Populacao}}
+}
+
+
+\-Cria uma \hyperlink{class_populacao}{\-Populacao}, constituida de diversas \-Geracoes.  
+
+
+
+
+{\ttfamily \#include $<$populacao.\-h$>$}
+
+\subsection*{\-Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_populacao_ae2b9a4937784998ba732c1453fd1a853}{\-Populacao} ()
+\item 
+void \hyperlink{class_populacao_a57906fb73eaed4b1eac941d70bd0d9f7}{criar\-Pop\-Base} (unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom)
+\item 
+float \hyperlink{class_populacao_aa736b42ac4cee186b3f514aec450c168}{get\-Varadp} ()
+\item 
+float \hyperlink{class_populacao_a48c6fab00206de43f4acae14ae41fd5c}{get\-Varresp} ()
+\item 
+float \hyperlink{class_populacao_aacb032a00ede3afa9f52a8603abe2ad9}{get\-Varfenp} ()
+\item 
+void \hyperlink{class_populacao_a1d9fa2673abedcc8b9e69c26fc98f8db}{get\-Mediap} ()
+\item 
+vector$<$ \hyperlink{class_geracao}{\-Geracao} $\ast$ $>$ \hyperlink{class_populacao_aa7b77ecfe5f2f555887191a324dcd562}{get\-Populacao} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Descrição detalhada}
+\-Cria uma \hyperlink{class_populacao}{\-Populacao}, constituida de diversas \-Geracoes. 
+
+\-A classe \hyperlink{class_populacao}{\-Populacao} tem como funcao armazenar as diversas geracoes simuladas, bem como retornar os parametros geneticos e populacionais da populacao simulada. 
+
+\subsection{\-Documentação dos \-Construtores \& \-Destrutor}
+\hypertarget{class_populacao_ae2b9a4937784998ba732c1453fd1a853}{\index{\-Populacao@{\-Populacao}!\-Populacao@{\-Populacao}}
+\index{\-Populacao@{\-Populacao}!Populacao@{\-Populacao}}
+\subsubsection[{\-Populacao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Populacao\-::\-Populacao} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_populacao_ae2b9a4937784998ba732c1453fd1a853}
+
+
+\subsection{\-Documentação dos métodos}
+\hypertarget{class_populacao_a57906fb73eaed4b1eac941d70bd0d9f7}{\index{\-Populacao@{\-Populacao}!criar\-Pop\-Base@{criar\-Pop\-Base}}
+\index{criar\-Pop\-Base@{criar\-Pop\-Base}!Populacao@{\-Populacao}}
+\subsubsection[{criar\-Pop\-Base}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Populacao\-::criar\-Pop\-Base} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tampb, }
+\item[{bool}]{tipo, }
+\item[{float}]{varres, }
+\item[{float}]{mediavarres, }
+\item[{unsigned int}]{qtdlocos, }
+\item[{unsigned int}]{qtdqtl, }
+\item[{unsigned int}]{qtdmarcador, }
+\item[{float}]{varad, }
+\item[{float}]{freqp, }
+\item[{float}]{freqpqtl, }
+\item[{float}]{pvaqtl, }
+\item[{unsigned int}]{qtdcrom}
+\end{DoxyParamCaption}
+)}}\label{class_populacao_a57906fb73eaed4b1eac941d70bd0d9f7}
+\-Metodo para criar uma populacao base (geracao 0), que ira constituir os individuos fundadores da populacao simulada. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em tambp} & -\/ \-Tamanho da populacao base; \\
+\hline
+{\em tipo} & -\/ ver \hyperlink{class_loco_a17e42d11b5d0f86797f942742c476f04}{\-Loco\-::set\-Loco()}; \\
+\hline
+{\em varres} & -\/ \-Variancia \-Residual fornecida pelo usuario; \\
+\hline
+{\em mediavarres} & -\/ \-Media da variancia residual fornecida pelo usuario; \\
+\hline
+{\em qtdlocos} & -\/ \-Quantidade total de locos que ira constituir o genoma do individuo; \\
+\hline
+{\em qtdqtl} & -\/ \-Quantidade de locos \-Q\-T\-Ls que ira constituir o genoma do individuo; \\
+\hline
+{\em qtdmarcador} & -\/ \-Quantidade de locos marcadores no genoma do individuo; \\
+\hline
+{\em varad} & -\/ \-Variancia genetica aditiva da caracteristica a ser simulada; \\
+\hline
+{\em freqp} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em freqpqtl} & -\/ ver \hyperlink{class_loco_a0a3371328be88138be0386897264931e}{\-Loco\-::set\-V\-G\-L\-Q\-T\-L()}; \\
+\hline
+{\em pvaqtl} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em qtdcrom} & -\/ \-Quantidade de cromossomos que ira compor o genoma do individuo. \\
+\hline
+\end{DoxyParams}
+
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_populacao_a57906fb73eaed4b1eac941d70bd0d9f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_populacao_a57906fb73eaed4b1eac941d70bd0d9f7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_populacao_a1d9fa2673abedcc8b9e69c26fc98f8db}{\index{\-Populacao@{\-Populacao}!get\-Mediap@{get\-Mediap}}
+\index{get\-Mediap@{get\-Mediap}!Populacao@{\-Populacao}}
+\subsubsection[{get\-Mediap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Populacao\-::get\-Mediap} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_populacao_a1d9fa2673abedcc8b9e69c26fc98f8db}
+\-Retorna a media da caracterista na populacao. \hypertarget{class_populacao_aa7b77ecfe5f2f555887191a324dcd562}{\index{\-Populacao@{\-Populacao}!get\-Populacao@{get\-Populacao}}
+\index{get\-Populacao@{get\-Populacao}!Populacao@{\-Populacao}}
+\subsubsection[{get\-Populacao}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Geracao}$\ast$$>$ {\bf \-Populacao\-::get\-Populacao} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_populacao_aa7b77ecfe5f2f555887191a324dcd562}
+\-Retorna o vetor de geracoes que constitui uma populacao. 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_populacao_aa7b77ecfe5f2f555887191a324dcd562_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_populacao_aa736b42ac4cee186b3f514aec450c168}{\index{\-Populacao@{\-Populacao}!get\-Varadp@{get\-Varadp}}
+\index{get\-Varadp@{get\-Varadp}!Populacao@{\-Populacao}}
+\subsubsection[{get\-Varadp}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Populacao\-::get\-Varadp} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_populacao_aa736b42ac4cee186b3f514aec450c168}
+\-Retorna a variancia genetica aditiva da populacao. 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_populacao_aa736b42ac4cee186b3f514aec450c168_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_populacao_aacb032a00ede3afa9f52a8603abe2ad9}{\index{\-Populacao@{\-Populacao}!get\-Varfenp@{get\-Varfenp}}
+\index{get\-Varfenp@{get\-Varfenp}!Populacao@{\-Populacao}}
+\subsubsection[{get\-Varfenp}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Populacao\-::get\-Varfenp} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_populacao_aacb032a00ede3afa9f52a8603abe2ad9}
+\-Retorna a variancia fenotipica da populacao. 
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_populacao_aacb032a00ede3afa9f52a8603abe2ad9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_populacao_aacb032a00ede3afa9f52a8603abe2ad9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_populacao_a48c6fab00206de43f4acae14ae41fd5c}{\index{\-Populacao@{\-Populacao}!get\-Varresp@{get\-Varresp}}
+\index{get\-Varresp@{get\-Varresp}!Populacao@{\-Populacao}}
+\subsubsection[{get\-Varresp}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Populacao\-::get\-Varresp} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_populacao_a48c6fab00206de43f4acae14ae41fd5c}
+\-Retorna a variancia residual da populacao. 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_populacao_a48c6fab00206de43f4acae14ae41fd5c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{populacao_8h}{populacao.\-h}\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{populacao_8cpp}{populacao.\-cpp}\end{DoxyCompactItemize}

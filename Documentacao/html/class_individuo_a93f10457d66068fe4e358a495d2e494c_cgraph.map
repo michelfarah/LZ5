@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_individuo.html#a1641427ff59310a53fc0076e519102c6" title="Individuo::setGenoma" alt="" coords="189,5,339,35"/>
+<area shape="rect" id="node7" href="$class_individuo.html#a40f1b7aaf7abc0e1e272eab2e7074fbd" title="Individuo::setSexo" alt="" coords="199,59,329,88"/>
+<area shape="rect" id="node9" href="$class_individuo.html#a3271e903e8edcb3bac726a0b3ff1d1a7" title="Individuo::setVres" alt="" coords="201,112,327,141"/>
+<area shape="rect" id="node5" href="$class_loco.html#a17e42d11b5d0f86797f942742c476f04" title="Loco::setLoco" alt="" coords="387,5,491,35"/>
+</map>

@@ -1,0 +1,87 @@
+.TH "Populacao" 3 "Terça, 29 de Janeiro de 2013" "Version lz5_turbo" "LZ5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Populacao \- 
+.PP
+Cria uma \fBPopulacao\fP, constituida de diversas Geracoes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <populacao\&.h>\fP
+.SS "Membros públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBPopulacao\fP ()"
+.br
+.ti -1c
+.RI "void \fBcriarPopBase\fP (unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom)"
+.br
+.ti -1c
+.RI "float \fBgetVaradp\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVarresp\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVarfenp\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetMediap\fP ()"
+.br
+.ti -1c
+.RI "vector< \fBGeracao\fP * > \fBgetPopulacao\fP ()"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Cria uma \fBPopulacao\fP, constituida de diversas Geracoes\&. 
+
+A classe \fBPopulacao\fP tem como funcao armazenar as diversas geracoes simuladas, bem como retornar os parametros geneticos e populacionais da populacao simulada\&. 
+.SH "Documentação dos Construtores & Destrutor"
+.PP 
+.SS "\fBPopulacao::Populacao\fP ()\fC [inline]\fP"
+.SH "Documentação dos métodos"
+.PP 
+.SS "void \fBPopulacao::criarPopBase\fP (unsigned inttampb, booltipo, floatvarres, floatmediavarres, unsigned intqtdlocos, unsigned intqtdqtl, unsigned intqtdmarcador, floatvarad, floatfreqp, floatfreqpqtl, floatpvaqtl, unsigned intqtdcrom)"Metodo para criar uma populacao base (geracao 0), que ira constituir os individuos fundadores da populacao simulada\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fItambp\fP - Tamanho da populacao base; 
+.br
+\fItipo\fP - ver \fBLoco::setLoco()\fP; 
+.br
+\fIvarres\fP - Variancia Residual fornecida pelo usuario; 
+.br
+\fImediavarres\fP - Media da variancia residual fornecida pelo usuario; 
+.br
+\fIqtdlocos\fP - Quantidade total de locos que ira constituir o genoma do individuo; 
+.br
+\fIqtdqtl\fP - Quantidade de locos QTLs que ira constituir o genoma do individuo; 
+.br
+\fIqtdmarcador\fP - Quantidade de locos marcadores no genoma do individuo; 
+.br
+\fIvarad\fP - Variancia genetica aditiva da caracteristica a ser simulada; 
+.br
+\fIfreqp\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIfreqpqtl\fP - ver \fBLoco::setVGLQTL()\fP; 
+.br
+\fIpvaqtl\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIqtdcrom\fP - Quantidade de cromossomos que ira compor o genoma do individuo\&. 
+.RE
+.PP
+
+.SS "void \fBPopulacao::getMediap\fP ()"Retorna a media da caracterista na populacao\&. 
+.SS "vector<\fBGeracao\fP*> \fBPopulacao::getPopulacao\fP ()\fC [inline]\fP"Retorna o vetor de geracoes que constitui uma populacao\&. 
+.SS "float \fBPopulacao::getVaradp\fP ()"Retorna a variancia genetica aditiva da populacao\&. 
+.SS "float \fBPopulacao::getVarfenp\fP ()"Retorna a variancia fenotipica da populacao\&. 
+.SS "float \fBPopulacao::getVarresp\fP ()"Retorna a variancia residual da populacao\&. 
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para LZ5 a partir do código fonte\&.

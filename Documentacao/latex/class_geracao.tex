@@ -1,0 +1,224 @@
+\hypertarget{class_geracao}{\section{\-Referência à classe \-Geracao}
+\label{class_geracao}\index{\-Geracao@{\-Geracao}}
+}
+
+
+\-Cria uma \hyperlink{class_geracao}{\-Geracao} que ira constituir uma populacao.  
+
+
+
+
+{\ttfamily \#include $<$geracao.\-h$>$}
+
+\subsection*{\-Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_geracao_a52622873ac80a7d688e827b7430f7fe1}{\-Geracao} ()
+\item 
+void \hyperlink{class_geracao_ad06d071bed257d62506aa47a5186496f}{set\-Geracao} (unsigned int tampb, bool tipo, float varres, float mediavarres, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl, unsigned int qtdcrom)
+\item 
+void \hyperlink{class_geracao_affc43315799b830a85c176072c5607ae}{set\-Varadg} ()
+\item 
+void \hyperlink{class_geracao_a8b139af5fcd3e5c5b302720cd6cabea0}{set\-Varresg} ()
+\item 
+void \hyperlink{class_geracao_adc9964b180ec37ecf40ba517a88f2c55}{set\-Mediag} ()
+\item 
+int \hyperlink{class_geracao_a58da88c6b6153dffd868cce13cade519}{get\-Tam\-Ger} ()
+\item 
+vector$<$ \hyperlink{class_individuo}{\-Individuo} $\ast$ $>$ \hyperlink{class_geracao_a313a62ad95ce1050c172954966bb83dd}{get\-Geracao} ()
+\item 
+float \hyperlink{class_geracao_a26583f8146e5f3e17f599a29646cc308}{get\-Varadg} ()
+\item 
+float \hyperlink{class_geracao_abda536f06142339a57e0b44ec52c0af1}{get\-Varresg} ()
+\item 
+float \hyperlink{class_geracao_a3ba1a1b0f86c1639af46e68263aa09c2}{get\-Varfeng} ()
+\item 
+float \hyperlink{class_geracao_a236ba45bf2ebe94e5d535e9e98bfa6a7}{get\-Mediag} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Descrição detalhada}
+\-Cria uma \hyperlink{class_geracao}{\-Geracao} que ira constituir uma populacao. 
+
+\-A classe \hyperlink{class_geracao}{\-Geracao} aramazena um conjunto de \-Individuos contemporaneos. \-Esta classe tem como funcao facilitar o controle da simulacao por \hyperlink{class_geracao}{\-Geracao}, fornecendo paramentros populacionais para cada geracao criada. 
+
+\subsection{\-Documentação dos \-Construtores \& \-Destrutor}
+\hypertarget{class_geracao_a52622873ac80a7d688e827b7430f7fe1}{\index{\-Geracao@{\-Geracao}!\-Geracao@{\-Geracao}}
+\index{\-Geracao@{\-Geracao}!Geracao@{\-Geracao}}
+\subsubsection[{\-Geracao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Geracao\-::\-Geracao} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_a52622873ac80a7d688e827b7430f7fe1}
+\-Armazena a media da caracteristica na geracao. 
+
+\subsection{\-Documentação dos métodos}
+\hypertarget{class_geracao_a313a62ad95ce1050c172954966bb83dd}{\index{\-Geracao@{\-Geracao}!get\-Geracao@{get\-Geracao}}
+\index{get\-Geracao@{get\-Geracao}!Geracao@{\-Geracao}}
+\subsubsection[{get\-Geracao}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Individuo}$\ast$$>$ {\bf \-Geracao\-::get\-Geracao} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_a313a62ad95ce1050c172954966bb83dd}
+\-Retorna o vetor de individuo da geracao. \hypertarget{class_geracao_a236ba45bf2ebe94e5d535e9e98bfa6a7}{\index{\-Geracao@{\-Geracao}!get\-Mediag@{get\-Mediag}}
+\index{get\-Mediag@{get\-Mediag}!Geracao@{\-Geracao}}
+\subsubsection[{get\-Mediag}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Geracao\-::get\-Mediag} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_a236ba45bf2ebe94e5d535e9e98bfa6a7}
+\-Retorna a media da caracterista na geracao \hypertarget{class_geracao_a58da88c6b6153dffd868cce13cade519}{\index{\-Geracao@{\-Geracao}!get\-Tam\-Ger@{get\-Tam\-Ger}}
+\index{get\-Tam\-Ger@{get\-Tam\-Ger}!Geracao@{\-Geracao}}
+\subsubsection[{get\-Tam\-Ger}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Geracao\-::get\-Tam\-Ger} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_a58da88c6b6153dffd868cce13cade519}
+\-Retorna o numero de individuos que constitui a geracao. \hypertarget{class_geracao_a26583f8146e5f3e17f599a29646cc308}{\index{\-Geracao@{\-Geracao}!get\-Varadg@{get\-Varadg}}
+\index{get\-Varadg@{get\-Varadg}!Geracao@{\-Geracao}}
+\subsubsection[{get\-Varadg}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Geracao\-::get\-Varadg} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_a26583f8146e5f3e17f599a29646cc308}
+\-Retorna a variancia genetica aditiva da geracao 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_geracao_a26583f8146e5f3e17f599a29646cc308_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_geracao_a3ba1a1b0f86c1639af46e68263aa09c2}{\index{\-Geracao@{\-Geracao}!get\-Varfeng@{get\-Varfeng}}
+\index{get\-Varfeng@{get\-Varfeng}!Geracao@{\-Geracao}}
+\subsubsection[{get\-Varfeng}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Geracao\-::get\-Varfeng} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_a3ba1a1b0f86c1639af46e68263aa09c2}
+\-Retorna a variancia fenotipica da geracao 
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_geracao_a3ba1a1b0f86c1639af46e68263aa09c2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_geracao_abda536f06142339a57e0b44ec52c0af1}{\index{\-Geracao@{\-Geracao}!get\-Varresg@{get\-Varresg}}
+\index{get\-Varresg@{get\-Varresg}!Geracao@{\-Geracao}}
+\subsubsection[{get\-Varresg}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Geracao\-::get\-Varresg} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_geracao_abda536f06142339a57e0b44ec52c0af1}
+\-Retorna a variancia residual da geracao 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_geracao_abda536f06142339a57e0b44ec52c0af1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_geracao_ad06d071bed257d62506aa47a5186496f}{\index{\-Geracao@{\-Geracao}!set\-Geracao@{set\-Geracao}}
+\index{set\-Geracao@{set\-Geracao}!Geracao@{\-Geracao}}
+\subsubsection[{set\-Geracao}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Geracao\-::set\-Geracao} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tampb, }
+\item[{bool}]{tipo, }
+\item[{float}]{varres, }
+\item[{float}]{mediavarres, }
+\item[{unsigned int}]{qtdlocos, }
+\item[{unsigned int}]{qtdqtl, }
+\item[{unsigned int}]{qtdmarcador, }
+\item[{float}]{varad, }
+\item[{float}]{freqp, }
+\item[{float}]{freqpqtl, }
+\item[{float}]{pvaqtl, }
+\item[{unsigned int}]{qtdcrom}
+\end{DoxyParamCaption}
+)}}\label{class_geracao_ad06d071bed257d62506aa47a5186496f}
+\-Metodo para ajustar uma geracao. \-Se o contg for igual a zero, o simulador cria uma populacao base, ajustando todos os paramentros necessarios para realizar a simulacao (\hyperlink{class_individuo_ae89912e2bcf4391c30d6a5074f709c88}{\-Individuo\-::setpos\-T\-Locos()}, \hyperlink{class_individuo_a2366e00f66ed23bd142a1d63509098e4}{\-Individuo\-::set\-Tam\-Crom()}, \hyperlink{class_individuo_a93f10457d66068fe4e358a495d2e494c}{\-Individuo\-::criar\-Ind\-B()}). 
+\begin{DoxyParams}{\-Parâmetros}
+{\em tambp} & -\/ \-Tamanho da populacao base; \\
+\hline
+{\em tipo} & -\/ ver \hyperlink{class_loco_a17e42d11b5d0f86797f942742c476f04}{\-Loco\-::set\-Loco()}; \\
+\hline
+{\em varres} & -\/ \-Variancia \-Residual fornecida pelo usuario; \\
+\hline
+{\em mediavarres} & -\/ \-Media da variancia residual fornecida pelo usuario; \\
+\hline
+{\em qtdlocos} & -\/ \-Quantidade total de locos que ira constituir o genoma do individuo; \\
+\hline
+{\em qtdqtl} & -\/ \-Quantidade de locos \-Q\-T\-Ls que ira constituir o genoma do individuo; \\
+\hline
+{\em qtdmarcador} & -\/ \-Quantidade de locos marcadores no genoma do individuo; \\
+\hline
+{\em varad} & -\/ \-Variancia genetica aditiva da caracteristica a ser simulada; \\
+\hline
+{\em freqp} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em freqpqtl} & -\/ ver \hyperlink{class_loco_a0a3371328be88138be0386897264931e}{\-Loco\-::set\-V\-G\-L\-Q\-T\-L()}; \\
+\hline
+{\em pvaqtl} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em qtdcrom} & -\/ \-Quantidade de cromossomos que ira compor o genoma do individuo. \\
+\hline
+\end{DoxyParams}
+
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geracao_ad06d071bed257d62506aa47a5186496f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geracao_ad06d071bed257d62506aa47a5186496f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_geracao_adc9964b180ec37ecf40ba517a88f2c55}{\index{\-Geracao@{\-Geracao}!set\-Mediag@{set\-Mediag}}
+\index{set\-Mediag@{set\-Mediag}!Geracao@{\-Geracao}}
+\subsubsection[{set\-Mediag}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Geracao\-::set\-Mediag} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_geracao_adc9964b180ec37ecf40ba517a88f2c55}
+\-Ajusta a media da caracteristica na geracao. \hypertarget{class_geracao_affc43315799b830a85c176072c5607ae}{\index{\-Geracao@{\-Geracao}!set\-Varadg@{set\-Varadg}}
+\index{set\-Varadg@{set\-Varadg}!Geracao@{\-Geracao}}
+\subsubsection[{set\-Varadg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Geracao\-::set\-Varadg} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_geracao_affc43315799b830a85c176072c5607ae}
+\-Ajusta a variancia genetica aditiva da caracterista na geracao. \hypertarget{class_geracao_a8b139af5fcd3e5c5b302720cd6cabea0}{\index{\-Geracao@{\-Geracao}!set\-Varresg@{set\-Varresg}}
+\index{set\-Varresg@{set\-Varresg}!Geracao@{\-Geracao}}
+\subsubsection[{set\-Varresg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Geracao\-::set\-Varresg} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_geracao_a8b139af5fcd3e5c5b302720cd6cabea0}
+\-Ajusta a variancia residual (ambiente) da caracteristica na geracao. 
+
+\-A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{geracao_8h}{geracao.\-h}\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{geracao_8cpp}{geracao.\-cpp}\end{DoxyCompactItemize}

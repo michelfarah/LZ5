@@ -1,0 +1,363 @@
+\hypertarget{class_individuo}{\section{\-Referência à classe \-Individuo}
+\label{class_individuo}\index{\-Individuo@{\-Individuo}}
+}
+
+
+\-Cria um genoma que constitui um individuo.  
+
+
+
+
+{\ttfamily \#include $<$individuo.\-h$>$}
+
+\subsection*{\-Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_individuo_a3042a660b9789ee24dd3658248c8e0b9}{\-Individuo} ()
+\item 
+void \hyperlink{class_individuo_a93f10457d66068fe4e358a495d2e494c}{criar\-Ind\-B} (bool tipoid, float varres, float mediavarres)
+\item 
+void \hyperlink{class_individuo_ae89912e2bcf4391c30d6a5074f709c88}{setpos\-T\-Locos} (unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl)
+\item 
+void \hyperlink{class_individuo_a1641427ff59310a53fc0076e519102c6}{set\-Genoma} (bool tipoid)
+\item 
+void \hyperlink{class_individuo_a2366e00f66ed23bd142a1d63509098e4}{set\-Tam\-Crom} (unsigned int qtdlocos, unsigned int qtdcrom)
+\item 
+void \hyperlink{class_individuo_a3271e903e8edcb3bac726a0b3ff1d1a7}{set\-Vres} (float varres, float mediavarres)
+\item 
+float \hyperlink{class_individuo_a602f0cf13154ca33b265b7d59b494ed3}{get\-Vad} ()
+\item 
+void \hyperlink{class_individuo_a40f1b7aaf7abc0e1e272eab2e7074fbd}{set\-Sexo} ()
+\item 
+vector$<$ unsigned int $>$ \hyperlink{class_individuo_a7aae9dafaa8ffebe2c20bd73ef7133cc}{getpos\-T\-Locos} ()
+\item 
+vector$<$ \hyperlink{class_loco}{\-Loco} $\ast$ $>$ \hyperlink{class_individuo_ac724222b106e77476ee0247ad170383d}{get\-Genoma} ()
+\item 
+unsigned int \hyperlink{class_individuo_a17aa04fe0128e944416d52d7c1867638}{get\-Id} ()
+\item 
+unsigned int \hyperlink{class_individuo_a43a77e5804d60b1943799e0299d34357}{get\-Idp} ()
+\item 
+unsigned int \hyperlink{class_individuo_a60ec384d3937146ab8353d3ebc715f6b}{get\-Idm} ()
+\item 
+bool \hyperlink{class_individuo_af6b53d0812f8ed281de665877a256498}{get\-Sexo} ()
+\item 
+float \hyperlink{class_individuo_a205f982134fd0df2f951946743e1c2b6}{get\-Vres} ()
+\item 
+float \hyperlink{class_individuo_a7a18d46c7f802c31a353db09035e2f2b}{get\-Fen} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Descrição detalhada}
+\-Cria um genoma que constitui um individuo. 
+
+\-A classe \hyperlink{class_individuo}{\-Individuo} tem como funcao armazenar o genoma, que ira compor o individuo e armazenar tambem as informacoes de identificacao, como o \-I\-D do individuo e os \-I\-Ds dos pais, bem como o sexo do indivíduo e o valor do efeito residual, referente a um erro aleatorio de ambiente. 
+
+\subsection{\-Documentação dos \-Construtores \& \-Destrutor}
+\hypertarget{class_individuo_a3042a660b9789ee24dd3658248c8e0b9}{\index{\-Individuo@{\-Individuo}!\-Individuo@{\-Individuo}}
+\index{\-Individuo@{\-Individuo}!Individuo@{\-Individuo}}
+\subsubsection[{\-Individuo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Individuo\-::\-Individuo} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a3042a660b9789ee24dd3658248c8e0b9}
+\-Cria um objeto do tipo \-Idividuo com sexo (false), o id (cont\-\_\-id), idp (0), idm (0) e vres (0). 
+
+\subsection{\-Documentação dos métodos}
+\hypertarget{class_individuo_a93f10457d66068fe4e358a495d2e494c}{\index{\-Individuo@{\-Individuo}!criar\-Ind\-B@{criar\-Ind\-B}}
+\index{criar\-Ind\-B@{criar\-Ind\-B}!Individuo@{\-Individuo}}
+\subsubsection[{criar\-Ind\-B}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Individuo\-::criar\-Ind\-B} (
+\begin{DoxyParamCaption}
+\item[{bool}]{tipoid, }
+\item[{float}]{varres, }
+\item[{float}]{mediavarres}
+\end{DoxyParamCaption}
+)}}\label{class_individuo_a93f10457d66068fe4e358a495d2e494c}
+\-Metodo para criar um individuo da \hyperlink{class_populacao}{\-Populacao} \-Base. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em tipoid} & -\/ corresponde ao tipo de alelo a ser criado (0 -\/ sem identificacao, 1 -\/ com identificacao); \\
+\hline
+{\em varres} & -\/ \-Variancia residual fornecida pelo usuario; \\
+\hline
+{\em mediavarres} & -\/ \-Media da variancia residual fornecida pelo usuario. \\
+\hline
+\end{DoxyParams}
+
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_a93f10457d66068fe4e358a495d2e494c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_a93f10457d66068fe4e358a495d2e494c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_a7a18d46c7f802c31a353db09035e2f2b}{\index{\-Individuo@{\-Individuo}!get\-Fen@{get\-Fen}}
+\index{get\-Fen@{get\-Fen}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Fen}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Individuo\-::get\-Fen} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a7a18d46c7f802c31a353db09035e2f2b}
+
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_individuo_a7a18d46c7f802c31a353db09035e2f2b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_ac724222b106e77476ee0247ad170383d}{\index{\-Individuo@{\-Individuo}!get\-Genoma@{get\-Genoma}}
+\index{get\-Genoma@{get\-Genoma}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Genoma}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Loco}$\ast$$>$ {\bf \-Individuo\-::get\-Genoma} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_ac724222b106e77476ee0247ad170383d}
+\-Retorna o genoma do individuo. \hypertarget{class_individuo_a17aa04fe0128e944416d52d7c1867638}{\index{\-Individuo@{\-Individuo}!get\-Id@{get\-Id}}
+\index{get\-Id@{get\-Id}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-Individuo\-::get\-Id} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a17aa04fe0128e944416d52d7c1867638}
+\-Retorna o \-I\-D do individuo. \hypertarget{class_individuo_a60ec384d3937146ab8353d3ebc715f6b}{\index{\-Individuo@{\-Individuo}!get\-Idm@{get\-Idm}}
+\index{get\-Idm@{get\-Idm}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Idm}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-Individuo\-::get\-Idm} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a60ec384d3937146ab8353d3ebc715f6b}
+\-Retorna o \-I\-D da mae do individuo. \hypertarget{class_individuo_a43a77e5804d60b1943799e0299d34357}{\index{\-Individuo@{\-Individuo}!get\-Idp@{get\-Idp}}
+\index{get\-Idp@{get\-Idp}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Idp}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-Individuo\-::get\-Idp} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a43a77e5804d60b1943799e0299d34357}
+\-Retorna o \-I\-D do pai do individuo. \hypertarget{class_individuo_a7aae9dafaa8ffebe2c20bd73ef7133cc}{\index{\-Individuo@{\-Individuo}!getpos\-T\-Locos@{getpos\-T\-Locos}}
+\index{getpos\-T\-Locos@{getpos\-T\-Locos}!Individuo@{\-Individuo}}
+\subsubsection[{getpos\-T\-Locos}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$unsigned int$>$ {\bf \-Individuo\-::getpos\-T\-Locos} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a7aae9dafaa8ffebe2c20bd73ef7133cc}
+\-Retorna o vetor de configuracao do genoma da populacao. \hypertarget{class_individuo_af6b53d0812f8ed281de665877a256498}{\index{\-Individuo@{\-Individuo}!get\-Sexo@{get\-Sexo}}
+\index{get\-Sexo@{get\-Sexo}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Sexo}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Individuo\-::get\-Sexo} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_af6b53d0812f8ed281de665877a256498}
+\-Retorna o sexo do individuo. \hypertarget{class_individuo_a602f0cf13154ca33b265b7d59b494ed3}{\index{\-Individuo@{\-Individuo}!get\-Vad@{get\-Vad}}
+\index{get\-Vad@{get\-Vad}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Vad}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Individuo\-::get\-Vad} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_individuo_a602f0cf13154ca33b265b7d59b494ed3}
+\-Retorna um float com o \-Valor \-Genetico \-Aditivo do individuo. 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{class_individuo_a602f0cf13154ca33b265b7d59b494ed3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_a205f982134fd0df2f951946743e1c2b6}{\index{\-Individuo@{\-Individuo}!get\-Vres@{get\-Vres}}
+\index{get\-Vres@{get\-Vres}!Individuo@{\-Individuo}}
+\subsubsection[{get\-Vres}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Individuo\-::get\-Vres} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a205f982134fd0df2f951946743e1c2b6}
+\-Retorna o \-Valor de efeito de ambiente (residual) do individuo. 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_individuo_a205f982134fd0df2f951946743e1c2b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_a1641427ff59310a53fc0076e519102c6}{\index{\-Individuo@{\-Individuo}!set\-Genoma@{set\-Genoma}}
+\index{set\-Genoma@{set\-Genoma}!Individuo@{\-Individuo}}
+\subsubsection[{set\-Genoma}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Individuo\-::set\-Genoma} (
+\begin{DoxyParamCaption}
+\item[{bool}]{tipoid}
+\end{DoxyParamCaption}
+)}}\label{class_individuo_a1641427ff59310a53fc0076e519102c6}
+\-Metodo para criar o genoma do individuo. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em tipoid} & -\/ \-Ver \hyperlink{class_loco_a17e42d11b5d0f86797f942742c476f04}{\-Loco\-::set\-Loco()} da classe \hyperlink{class_loco}{\-Loco}. \\
+\hline
+\end{DoxyParams}
+
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_individuo_a1641427ff59310a53fc0076e519102c6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_a1641427ff59310a53fc0076e519102c6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_ae89912e2bcf4391c30d6a5074f709c88}{\index{\-Individuo@{\-Individuo}!setpos\-T\-Locos@{setpos\-T\-Locos}}
+\index{setpos\-T\-Locos@{setpos\-T\-Locos}!Individuo@{\-Individuo}}
+\subsubsection[{setpos\-T\-Locos}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Individuo\-::setpos\-T\-Locos} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{qtdlocos, }
+\item[{unsigned int}]{qtdqtl, }
+\item[{unsigned int}]{qtdmarcador, }
+\item[{float}]{varad, }
+\item[{float}]{freqp, }
+\item[{float}]{freqpqtl, }
+\item[{float}]{pvaqtl}
+\end{DoxyParamCaption}
+)}}\label{class_individuo_ae89912e2bcf4391c30d6a5074f709c88}
+\-Metodo para criar as posicoes do diferentes tipos de locos, um vetor static, apresentando a mesma configuracao para todos os individuos durante todo o processo de simulacao, cria tambem os vetores de efeito de contribuicao para cada loco poligenico e \-Q\-T\-L. \-Esta funcao eh chamada apenas uma vez, no inicio da simulacao. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em qtdlocos} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em qtdqtl} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em qtdmarcador} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em varad} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em freqp} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+{\em freqpqtl} & -\/ ver \hyperlink{class_loco_a0a3371328be88138be0386897264931e}{\-Loco\-::set\-V\-G\-L\-Q\-T\-L()}; \\
+\hline
+{\em pvaqtl} & -\/ ver \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\-Loco\-::set\-V\-G\-L\-Pol()}; \\
+\hline
+\end{DoxyParams}
+
+
+\-Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{class_individuo_ae89912e2bcf4391c30d6a5074f709c88_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_ae89912e2bcf4391c30d6a5074f709c88_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_a40f1b7aaf7abc0e1e272eab2e7074fbd}{\index{\-Individuo@{\-Individuo}!set\-Sexo@{set\-Sexo}}
+\index{set\-Sexo@{set\-Sexo}!Individuo@{\-Individuo}}
+\subsubsection[{set\-Sexo}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Individuo\-::set\-Sexo} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_individuo_a40f1b7aaf7abc0e1e272eab2e7074fbd}
+\-Altera o valor do sexo para \-T\-R\-U\-E. 
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_a40f1b7aaf7abc0e1e272eab2e7074fbd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_a2366e00f66ed23bd142a1d63509098e4}{\index{\-Individuo@{\-Individuo}!set\-Tam\-Crom@{set\-Tam\-Crom}}
+\index{set\-Tam\-Crom@{set\-Tam\-Crom}!Individuo@{\-Individuo}}
+\subsubsection[{set\-Tam\-Crom}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Individuo\-::set\-Tam\-Crom} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{qtdlocos, }
+\item[{unsigned int}]{qtdcrom}
+\end{DoxyParamCaption}
+)}}\label{class_individuo_a2366e00f66ed23bd142a1d63509098e4}
+\-Metodo para criar vetor static com o tamanho dos cromossomos. (\-O simulador esta ajustando todos os cromossomos com o mesmo tamanho!) 
+\begin{DoxyParams}{\-Parâmetros}
+{\em qtdlocos} & -\/ \-Quantidade total de locos que ira compor o genoma do individuo; \\
+\hline
+{\em qtdcrom} & -\/ \-Quantidade de cromossomos que ira compor o individuo; \\
+\hline
+\end{DoxyParams}
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_a2366e00f66ed23bd142a1d63509098e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_individuo_a3271e903e8edcb3bac726a0b3ff1d1a7}{\index{\-Individuo@{\-Individuo}!set\-Vres@{set\-Vres}}
+\index{set\-Vres@{set\-Vres}!Individuo@{\-Individuo}}
+\subsubsection[{set\-Vres}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Individuo\-::set\-Vres} (
+\begin{DoxyParamCaption}
+\item[{float}]{varres, }
+\item[{float}]{mediavarres}
+\end{DoxyParamCaption}
+)}}\label{class_individuo_a3271e903e8edcb3bac726a0b3ff1d1a7}
+\-Ajusta o \-Valor de efeito residual (nao genetico) do individuo. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em varres} & -\/ \-Variancia residual da populacao; \\
+\hline
+{\em mediavarres} & -\/ \-Media da variancia residual da populacao. \\
+\hline
+\end{DoxyParams}
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_individuo_a3271e903e8edcb3bac726a0b3ff1d1a7_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{individuo_8h}{individuo.\-h}\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{individuo_8cpp}{individuo.\-cpp}\end{DoxyCompactItemize}

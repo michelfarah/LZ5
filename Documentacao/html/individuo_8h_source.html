@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>LZ5: Código-Fonte de /home/michel/workspace/LZ5/individuo.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="lucca.jpg"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">LZ5
+   &#160;<span id="projectnumber">lz5_turbo</span>
+   </div>
+   <div id="projectbrief">Simulador genetico que utiliza a simulacao em nivel de gene para evoluir populacoes por determinadas geracoes</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Gerado por Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/home/michel/workspace/LZ5/individuo.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="individuo_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//****************************************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">//* individuo.h                                                                                      *</span>
+<a name="l00003"></a>00003 <span class="comment">//*                                                                                                  *</span>
+<a name="l00004"></a>00004 <span class="comment">//* Copyright (c) 2008 LuCCA-Z (Laboratório de Computação Científica Aplicada à Zootecnia),          *</span>
+<a name="l00005"></a>00005 <span class="comment">//* Rodovia Comandante João Ribeiro de Barros (SP 294), km 651. UNESP,                               *</span>
+<a name="l00006"></a>00006 <span class="comment">//* Dracena, São Paulo, Brazil, 17900-000                                                            *</span>
+<a name="l00007"></a>00007 <span class="comment">//*                                                                                                  *</span>
+<a name="l00008"></a>00008 <span class="comment">//* This file is part of LZ5.                                                                        *</span>
+<a name="l00009"></a>00009 <span class="comment">//*                                                                                                  *</span>
+<a name="l00010"></a>00010 <span class="comment">//* LZ5 is free software: you can redistribute it and/or modify it under the terms of the            *</span>
+<a name="l00011"></a>00011 <span class="comment">//* GNU General Public License as published by the Free Software Foundation, either version 3        *</span>
+<a name="l00012"></a>00012 <span class="comment">//* of the License, or (at your option) any later version.                                           *</span>
+<a name="l00013"></a>00013 <span class="comment">//*                                                                                                  *</span>
+<a name="l00014"></a>00014 <span class="comment">//* LZ5 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without         *</span>
+<a name="l00015"></a>00015 <span class="comment">//* even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See            *</span>
+<a name="l00016"></a>00016 <span class="comment">//* the GNU General Public License for more details. You should have received a copy of the          *</span>
+<a name="l00017"></a>00017 <span class="comment">//* GNU General Public License along with LZ5. If not, see &lt;http://www.gnu.org/licenses/&gt;.           *</span>
+<a name="l00018"></a>00018 <span class="comment">//*                                                                                                  *</span>
+<a name="l00019"></a>00019 <span class="comment">//* Acknowledgements                                                                                 *</span>
+<a name="l00020"></a>00020 <span class="comment">//*                                                                                                  *</span>
+<a name="l00021"></a>00021 <span class="comment">//* To Dr. Rohan L. Fernando from Iowa State University and Dr. Ricardo Frederico Euclydes           *</span>
+<a name="l00022"></a>00022 <span class="comment">//* from Vicosa Federal University, who had great influence in ideas behind the LZ5&#39;s development.   *</span>
+<a name="l00023"></a>00023 <span class="comment">//*                                                                                                  *</span>
+<a name="l00024"></a>00024 <span class="comment">//****************************************************************************************************</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#ifndef _INDIVIDUO_H_</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define _INDIVIDUO_H_</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include&lt;vector&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include&lt;typeinfo&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include&lt;algorithm&gt;</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="loco_8h.html">loco.h</a>&quot;</span>
+<a name="l00034"></a>00034 
+<a name="l00036"></a>00036 
+<a name="l00042"></a><a class="code" href="class_individuo.html">00042</a> <span class="keyword">class </span><a class="code" href="class_individuo.html" title="Cria um genoma que constitui um individuo.">Individuo</a> {
+<a name="l00043"></a>00043  <span class="keyword">private</span>:
+<a name="l00044"></a>00044   vector &lt; Loco* &gt; genoma; 
+<a name="l00045"></a>00045   <span class="keyword">static</span> vector &lt;unsigned int&gt; posTLocos; 
+<a name="l00046"></a>00046   <span class="keyword">static</span> vector &lt; unsigned int &gt; tamCrom; 
+<a name="l00047"></a>00047   <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cont_id; 
+<a name="l00048"></a>00048   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id; 
+<a name="l00049"></a>00049   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idp; 
+<a name="l00050"></a>00050   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idm; 
+<a name="l00051"></a>00051   <span class="keywordtype">bool</span> sexo; 
+<a name="l00052"></a>00052   <span class="keywordtype">float</span> vres; 
+<a name="l00053"></a>00053  <span class="keyword">public</span>:
+<a name="l00057"></a><a class="code" href="class_individuo.html#a3042a660b9789ee24dd3658248c8e0b9">00057</a>  <a class="code" href="class_individuo.html#a3042a660b9789ee24dd3658248c8e0b9">Individuo</a>():genoma(),sexo(false),id(cont_id),idp(0),idm(0),vres(0){cont_id++;}; 
+<a name="l00058"></a>00058 
+<a name="l00064"></a>00064   <span class="keywordtype">void</span> <a class="code" href="class_individuo.html#a93f10457d66068fe4e358a495d2e494c">criarIndB</a>(<span class="keywordtype">bool</span> tipoid, <span class="keywordtype">float</span> varres, <span class="keywordtype">float</span> mediavarres);
+<a name="l00065"></a>00065 
+<a name="l00078"></a>00078   <span class="keywordtype">void</span> <a class="code" href="class_individuo.html#ae89912e2bcf4391c30d6a5074f709c88">setposTLocos</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qtdlocos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qtdqtl, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qtdmarcador, <span class="keywordtype">float</span> varad, <span class="keywordtype">float</span> freqp, <span class="keywordtype">float</span> freqpqtl, <span class="keywordtype">float</span> pvaqtl);
+<a name="l00079"></a>00079 
+<a name="l00083"></a>00083   <span class="keywordtype">void</span> <a class="code" href="class_individuo.html#a1641427ff59310a53fc0076e519102c6">setGenoma</a>(<span class="keywordtype">bool</span> tipoid);
+<a name="l00084"></a>00084 
+<a name="l00089"></a>00089   <span class="keywordtype">void</span> <a class="code" href="class_individuo.html#a2366e00f66ed23bd142a1d63509098e4">setTamCrom</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qtdlocos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qtdcrom);
+<a name="l00090"></a>00090 
+<a name="l00095"></a>00095   <span class="keywordtype">void</span> <a class="code" href="class_individuo.html#a3271e903e8edcb3bac726a0b3ff1d1a7">setVres</a>(<span class="keywordtype">float</span> varres, <span class="keywordtype">float</span> mediavarres);
+<a name="l00096"></a>00096 
+<a name="l00098"></a>00098   <span class="keywordtype">float</span> <a class="code" href="class_individuo.html#a602f0cf13154ca33b265b7d59b494ed3">getVad</a>(); 
+<a name="l00099"></a>00099 
+<a name="l00101"></a><a class="code" href="class_individuo.html#a40f1b7aaf7abc0e1e272eab2e7074fbd">00101</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_individuo.html#a40f1b7aaf7abc0e1e272eab2e7074fbd">setSexo</a>(){sexo=<span class="keyword">true</span>;}
+<a name="l00102"></a>00102 
+<a name="l00104"></a><a class="code" href="class_individuo.html#a7aae9dafaa8ffebe2c20bd73ef7133cc">00104</a>   <span class="keyword">inline</span> vector&lt;unsigned int&gt; <a class="code" href="class_individuo.html#a7aae9dafaa8ffebe2c20bd73ef7133cc">getposTLocos</a>(){<span class="keywordflow">return</span> posTLocos;}
+<a name="l00105"></a>00105 
+<a name="l00107"></a><a class="code" href="class_individuo.html#ac724222b106e77476ee0247ad170383d">00107</a>   <span class="keyword">inline</span> vector&lt;Loco*&gt; <a class="code" href="class_individuo.html#ac724222b106e77476ee0247ad170383d">getGenoma</a>(){<span class="keywordflow">return</span> genoma;}
+<a name="l00108"></a>00108 
+<a name="l00110"></a><a class="code" href="class_individuo.html#a17aa04fe0128e944416d52d7c1867638">00110</a>   <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_individuo.html#a17aa04fe0128e944416d52d7c1867638">getId</a>(){<span class="keywordflow">return</span> id;}
+<a name="l00111"></a>00111 
+<a name="l00113"></a><a class="code" href="class_individuo.html#a43a77e5804d60b1943799e0299d34357">00113</a>   <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_individuo.html#a43a77e5804d60b1943799e0299d34357">getIdp</a>(){<span class="keywordflow">return</span> idp;}
+<a name="l00114"></a>00114 
+<a name="l00116"></a><a class="code" href="class_individuo.html#a60ec384d3937146ab8353d3ebc715f6b">00116</a>   <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_individuo.html#a60ec384d3937146ab8353d3ebc715f6b">getIdm</a>(){<span class="keywordflow">return</span> idm;}
+<a name="l00117"></a>00117 
+<a name="l00119"></a><a class="code" href="class_individuo.html#af6b53d0812f8ed281de665877a256498">00119</a>   <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_individuo.html#af6b53d0812f8ed281de665877a256498">getSexo</a>(){<span class="keywordflow">return</span> sexo;}
+<a name="l00120"></a>00120 
+<a name="l00122"></a><a class="code" href="class_individuo.html#a205f982134fd0df2f951946743e1c2b6">00122</a>   <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_individuo.html#a205f982134fd0df2f951946743e1c2b6">getVres</a>(){<span class="keywordflow">return</span> vres;}
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124   <span class="comment">/* Retorna o Valor Fenotipoco do individuo. */</span>
+<a name="l00125"></a><a class="code" href="class_individuo.html#a7a18d46c7f802c31a353db09035e2f2b">00125</a>   <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_individuo.html#a7a18d46c7f802c31a353db09035e2f2b">getFen</a>(){<span class="keywordflow">return</span> <a class="code" href="class_individuo.html#a602f0cf13154ca33b265b7d59b494ed3">getVad</a>()+<a class="code" href="class_individuo.html#a205f982134fd0df2f951946743e1c2b6">getVres</a>();}
+<a name="l00126"></a>00126   
+<a name="l00127"></a>00127  
+<a name="l00128"></a>00128 };
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 <span class="preprocessor">#endif</span>
+<a name="l00131"></a>00131 <span class="preprocessor"></span>  
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Gerado em Terça, 29 de Janeiro de 2013 13:14:04 para LZ5 por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

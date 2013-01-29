@@ -26,43 +26,46 @@
 #ifndef _ALELO_H_
 #define _ALELO_H_
 
-#include<iostream>
-
-//! Classe Alelo.
+//! Classe para criar um Alelo.
 /*!
  *A classe Alelo tem como funcao representar um alelo na forma mais simples, podendo ser 0 ou 1, esta classe
  * apenas representa o estado do alelo, sem armazenar valores ou efeitos para este.
  * Esta eh uma classe base e, dependendo do tipo de simulacao pode-se usar a classe derivada AleloId.
+ * \author Michel Marques Farah e Ricardo da Fonseca
+ * \since 20/09/2012
+ * \version 1.0
 */
 class Alelo{
  private:
-  bool estado; /*< armazena o estado do alelo, um valor bool indicando apenas se é FALSE ou TRUE */
+  bool estado; /*! armazena o estado do alelo, um valor bool indicando apenas se é FALSE ou TRUE */
  public:
   /**
    * Por padrao o estado inicial do Alelo sempre é FALSE, sempre que chamado o metodo setAlelo() o estado do 
    * alelo se transforma para TRUE
    */
   inline Alelo():estado(false){}
-  inline void setAlelo(){estado=true;} /**< Altera o estado do Alelo de FALSE para TRUE */
-  inline bool getAlelo(){return estado;} /**< Retorna o estado atual do Alelo */
+  inline void setAlelo(){estado=true;} /*!< Altera o estado do Alelo de FALSE para TRUE */
+  inline bool getAlelo(){return estado;} /*!< Retorna o estado atual do Alelo */
 };
 
 
-/*A classe AleloId tem como finalidade criar um alelo marcador com identificao para estudos que envolvem 
- * o conceito de locos identicos por descendencia (ibd). Assim, quando desejado, o simulador cria uma 
- * identificacao unica para cada novo Alelo criado.
+//! Classe derivada para criar um Alelo com sua identificacao (ID).
+/*!
+ *A classe AleloId eh uma classe derivada da Alelo e tem como finalidade criar um alelo marcador com 
+ * identificao para estudos que envolvem o conceito de locos identicos por descendencia (ibd). 
+ * Assim, quando desejado, o simulador cria uma identificacao unica para cada novo Alelo criado.
 */
 class AleloId:public Alelo{
 private:
-  static unsigned int cont; /*< valor static para incrementar toda vez que um AleloId for criado */
-  unsigned int id; /*< armazena o ID do Alelo */
+  static unsigned int cont; /*!< valor static para incrementar toda vez que um AleloId for criado */
+  unsigned int id; /*!< armazena o ID do Alelo */
 public:
   /**
    * Apresenta a mesma configuracao da Clase Base Alelo, porem, cada vez que um AleloId eh criado ele armazena
    * uma identificacao definida pelo contador 'cont'. 
    */
   inline AleloId():Alelo(),id(cont){cont++;}
-  inline unsigned int getId(){return id;} /**< Retorna o ID do Alelo */
+  inline unsigned int getId(){return id;} /*!< Retorna o ID do Alelo */
 };
 
 

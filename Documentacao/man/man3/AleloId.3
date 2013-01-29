@@ -1,0 +1,40 @@
+.TH "AleloId" 3 "Terça, 29 de Janeiro de 2013" "Version lz5_turbo" "LZ5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AleloId \- 
+.PP
+Classe derivada para criar um \fBAlelo\fP com sua identificacao (ID)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <alelo\&.h>\fP
+.PP
+Derivada de \fBAlelo\fP\&.
+.SS "Membros públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBAleloId\fP ()"
+.br
+.ti -1c
+.RI "unsigned int \fBgetId\fP ()"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Classe derivada para criar um \fBAlelo\fP com sua identificacao (ID)\&. 
+
+A classe \fBAleloId\fP eh uma classe derivada da \fBAlelo\fP e tem como finalidade criar um alelo marcador com identificao para estudos que envolvem o conceito de locos identicos por descendencia (ibd)\&. Assim, quando desejado, o simulador cria uma identificacao unica para cada novo \fBAlelo\fP criado\&. 
+.SH "Documentação dos Construtores & Destrutor"
+.PP 
+.SS "\fBAleloId::AleloId\fP ()\fC [inline]\fP"Apresenta a mesma configuracao da Clase Base \fBAlelo\fP, porem, cada vez que um \fBAleloId\fP eh criado ele armazena uma identificacao definida pelo contador 'cont'\&. 
+.SH "Documentação dos métodos"
+.PP 
+.SS "unsigned int \fBAleloId::getId\fP ()\fC [inline]\fP"Retorna o ID do \fBAlelo\fP 
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para LZ5 a partir do código fonte\&.

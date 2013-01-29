@@ -1,0 +1,149 @@
+.TH "Individuo" 3 "Terça, 29 de Janeiro de 2013" "Version lz5_turbo" "LZ5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Individuo \- 
+.PP
+Cria um genoma que constitui um individuo\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <individuo\&.h>\fP
+.SS "Membros públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBIndividuo\fP ()"
+.br
+.ti -1c
+.RI "void \fBcriarIndB\fP (bool tipoid, float varres, float mediavarres)"
+.br
+.ti -1c
+.RI "void \fBsetposTLocos\fP (unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl)"
+.br
+.ti -1c
+.RI "void \fBsetGenoma\fP (bool tipoid)"
+.br
+.ti -1c
+.RI "void \fBsetTamCrom\fP (unsigned int qtdlocos, unsigned int qtdcrom)"
+.br
+.ti -1c
+.RI "void \fBsetVres\fP (float varres, float mediavarres)"
+.br
+.ti -1c
+.RI "float \fBgetVad\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSexo\fP ()"
+.br
+.ti -1c
+.RI "vector< unsigned int > \fBgetposTLocos\fP ()"
+.br
+.ti -1c
+.RI "vector< \fBLoco\fP * > \fBgetGenoma\fP ()"
+.br
+.ti -1c
+.RI "unsigned int \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "unsigned int \fBgetIdp\fP ()"
+.br
+.ti -1c
+.RI "unsigned int \fBgetIdm\fP ()"
+.br
+.ti -1c
+.RI "bool \fBgetSexo\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVres\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetFen\fP ()"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Cria um genoma que constitui um individuo\&. 
+
+A classe \fBIndividuo\fP tem como funcao armazenar o genoma, que ira compor o individuo e armazenar tambem as informacoes de identificacao, como o ID do individuo e os IDs dos pais, bem como o sexo do indivíduo e o valor do efeito residual, referente a um erro aleatorio de ambiente\&. 
+.SH "Documentação dos Construtores & Destrutor"
+.PP 
+.SS "\fBIndividuo::Individuo\fP ()\fC [inline]\fP"Cria um objeto do tipo Idividuo com sexo (false), o id (cont_id), idp (0), idm (0) e vres (0)\&. 
+.SH "Documentação dos métodos"
+.PP 
+.SS "void \fBIndividuo::criarIndB\fP (booltipoid, floatvarres, floatmediavarres)"Metodo para criar um individuo da \fBPopulacao\fP Base\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fItipoid\fP - corresponde ao tipo de alelo a ser criado (0 - sem identificacao, 1 - com identificacao); 
+.br
+\fIvarres\fP - Variancia residual fornecida pelo usuario; 
+.br
+\fImediavarres\fP - Media da variancia residual fornecida pelo usuario\&. 
+.RE
+.PP
+
+.SS "float \fBIndividuo::getFen\fP ()\fC [inline]\fP"
+.SS "vector<\fBLoco\fP*> \fBIndividuo::getGenoma\fP ()\fC [inline]\fP"Retorna o genoma do individuo\&. 
+.SS "unsigned int \fBIndividuo::getId\fP ()\fC [inline]\fP"Retorna o ID do individuo\&. 
+.SS "unsigned int \fBIndividuo::getIdm\fP ()\fC [inline]\fP"Retorna o ID da mae do individuo\&. 
+.SS "unsigned int \fBIndividuo::getIdp\fP ()\fC [inline]\fP"Retorna o ID do pai do individuo\&. 
+.SS "vector<unsigned int> \fBIndividuo::getposTLocos\fP ()\fC [inline]\fP"Retorna o vetor de configuracao do genoma da populacao\&. 
+.SS "bool \fBIndividuo::getSexo\fP ()\fC [inline]\fP"Retorna o sexo do individuo\&. 
+.SS "float \fBIndividuo::getVad\fP ()"Retorna um float com o Valor Genetico Aditivo do individuo\&. 
+.SS "float \fBIndividuo::getVres\fP ()\fC [inline]\fP"Retorna o Valor de efeito de ambiente (residual) do individuo\&. 
+.SS "void \fBIndividuo::setGenoma\fP (booltipoid)"Metodo para criar o genoma do individuo\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fItipoid\fP - Ver \fBLoco::setLoco()\fP da classe \fBLoco\fP\&. 
+.RE
+.PP
+
+.SS "void \fBIndividuo::setposTLocos\fP (unsigned intqtdlocos, unsigned intqtdqtl, unsigned intqtdmarcador, floatvarad, floatfreqp, floatfreqpqtl, floatpvaqtl)"Metodo para criar as posicoes do diferentes tipos de locos, um vetor static, apresentando a mesma configuracao para todos os individuos durante todo o processo de simulacao, cria tambem os vetores de efeito de contribuicao para cada loco poligenico e QTL\&. Esta funcao eh chamada apenas uma vez, no inicio da simulacao\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIqtdlocos\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIqtdqtl\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIqtdmarcador\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIvarad\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIfreqp\fP - ver \fBLoco::setVGLPol()\fP; 
+.br
+\fIfreqpqtl\fP - ver \fBLoco::setVGLQTL()\fP; 
+.br
+\fIpvaqtl\fP - ver \fBLoco::setVGLPol()\fP; 
+.RE
+.PP
+
+.SS "void \fBIndividuo::setSexo\fP ()\fC [inline]\fP"Altera o valor do sexo para TRUE\&. 
+.SS "void \fBIndividuo::setTamCrom\fP (unsigned intqtdlocos, unsigned intqtdcrom)"Metodo para criar vetor static com o tamanho dos cromossomos\&. (O simulador esta ajustando todos os cromossomos com o mesmo tamanho!) 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIqtdlocos\fP - Quantidade total de locos que ira compor o genoma do individuo; 
+.br
+\fIqtdcrom\fP - Quantidade de cromossomos que ira compor o individuo; 
+.RE
+.PP
+
+.SS "void \fBIndividuo::setVres\fP (floatvarres, floatmediavarres)"Ajusta o Valor de efeito residual (nao genetico) do individuo\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIvarres\fP - Variancia residual da populacao; 
+.br
+\fImediavarres\fP - Media da variancia residual da populacao\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para LZ5 a partir do código fonte\&.

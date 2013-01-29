@@ -34,13 +34,12 @@ void Geracao::setGeracao(unsigned int tampb, bool tipo, float varres, float medi
     pind->criarIndB(tipo,varres,mediavarres);
     geracao.push_back(pind);
     for(unsigned int i=0; i<tampb-1;i++){
-      Individuo *pind;
       pind=new Individuo;
       pind->criarIndB(tipo,varres,mediavarres);
       geracao.push_back(pind);
     }
   }
-};
+}
 
 void Geracao::setMediag(){
   float media = 0;
@@ -48,7 +47,7 @@ void Geracao::setMediag(){
     media=geracao[i]->getVad()+geracao[i]->getVres()+media;
   }
   media=media/geracao.size();
-};
+}
 
 void Geracao::setVaradg(){
   float media = 0;
@@ -60,8 +59,8 @@ void Geracao::setVaradg(){
   for(unsigned int i=0;i<geracao.size();i++){
     sum=pow((geracao[i]->getVad()-media),2)+sum;
   }
-  varadg=sum/geracao.size();
-};
+  varadg=sum/geracao.size()-1;
+}
 
 void Geracao::setVarresg(){
   float media = 0;
@@ -73,7 +72,7 @@ void Geracao::setVarresg(){
   for(unsigned int i=0;i<geracao.size();i++){
     sum=pow((geracao[i]->getVres()-media),2)+sum;
   }
-  varresg=sum/geracao.size();
-};
+  varresg=sum/geracao.size()-1;
+}
 
 unsigned int Geracao::contg=-1;

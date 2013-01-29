@@ -22,7 +22,9 @@
 //* from Vicosa Federal University, who had great influence in ideas behind the LZ5's development.   *
 //*                                                                                                  *
 //****************************************************************************************************
+ 
 
+#include<iostream>
 #include<vector>
 #include<typeinfo>
 #include<algorithm>

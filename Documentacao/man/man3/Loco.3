@@ -1,0 +1,130 @@
+.TH "Loco" 3 "Terça, 29 de Janeiro de 2013" "Version lz5_turbo" "LZ5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Loco \- 
+.PP
+Classe para criar um \fBLoco\fP a partir de 2 Alelos\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <loco\&.h>\fP
+.SS "Membros públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBLoco\fP ()"
+.br
+.ti -1c
+.RI "vector< \fBAlelo\fP * > \fBgetLoco\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetVGLpol\fP (unsigned int i)"
+.br
+.ti -1c
+.RI "float \fBgetVGLQTL\fP (unsigned int i)"
+.br
+.ti -1c
+.RI "void \fBsetLoco\fP (bool tipo)"
+.br
+.ti -1c
+.RI "void \fBsetVGLPol\fP (float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp, float pvaqtl)"
+.br
+.ti -1c
+.RI "void \fBsetVGLQTL\fP (float varad, unsigned int qtdlqtl, float freqpqtl, float pvaqtl)"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Classe para criar um \fBLoco\fP a partir de 2 Alelos\&. 
+
+A Classe \fBLoco\fP tem como funcao armazenar o genotipo (configuracao alelica) de cada loco que ira compor um individuo, nao importando o tipo de loco (marcador, QTL ou poligenico)\&. 
+.PP
+\fBAutor:\fP
+.RS 4
+Michel Marques Farah e Ricardo da Fonseca 
+.RE
+.PP
+\fBDesde:\fP
+.RS 4
+20/09/2012 
+.RE
+.PP
+\fBVersão:\fP
+.RS 4
+1\&.1 
+.RE
+.PP
+
+.SH "Documentação dos Construtores & Destrutor"
+.PP 
+.SS "\fBLoco::Loco\fP ()\fC [inline]\fP"Cria um objeto Genotipo vazio\&. 
+.SH "Documentação dos métodos"
+.PP 
+.SS "vector<\fBAlelo\fP*> \fBLoco::getLoco\fP ()\fC [inline]\fP"Retorna um vetor com 2 poteiros para dois objetos \fBAlelo\fP 
+.SS "float \fBLoco::getVGLpol\fP (unsigned inti)\fC [inline]\fP"Metodo para retornar a contribuicao dos locos poligenicos dependendo da sua configuracao alelica 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIi\fP - indice que indica a posição no array de contribuicao dos locos poligenicos 
+.RE
+.PP
+
+.SS "float \fBLoco::getVGLQTL\fP (unsigned inti)\fC [inline]\fP"Metodo para retornar a contribuicao dos locos QTLs dependendo da sua configuracao alelica 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIi\fP - indice que indica a posição no array de contribuicao dos locos QTLs 
+.RE
+.PP
+
+.SS "void \fBLoco::setLoco\fP (booltipo)"Metodo para ajustar a configuracao do loco 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fItipo\fP - bool para indicar se ira criar um objeto do tipo \fBAlelo\fP (FALSE) ou do tipo \fBAleloId\fP (TRUE) 
+.RE
+.PP
+
+.SS "void \fBLoco::setVGLPol\fP (floatvarad, unsigned intqtdlocos, unsigned intqtdqtl, unsigned intqtdmarcador, floatfreqp, floatpvaqtl)"Metodo para ajustar o vetor static de contribuicao dos locos poligenicos\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIvarad\fP - Variancia Aditiva fornecida pelo usuario; 
+.br
+\fIqtdlocos\fP - Quantidade de Locos Poligenicos que irao formar o genoma do individuo; 
+.br
+\fIqtdqtl\fP - Quantidade de Locos QTLs que irao formar o genoma do individuo; 
+.br
+\fIqtdmarcador\fP - Quantidade de Locos Marcadores no genoma de cada individuo; 
+.br
+\fIfreqp\fP - Frequencia alelica (p) dos locos poligenicos (atribui-se a mesma frequencia para todos os locos poligenicos); 
+.br
+\fIpvaqtl\fP - Proporcao da variancia aditiva que eh explicada pelos QTLs\&. 
+.RE
+.PP
+
+.SS "void \fBLoco::setVGLQTL\fP (floatvarad, unsigned intqtdlqtl, floatfreqpqtl, floatpvaqtl)"Metodo para ajustar o vetor static de contribuicao dos locos QTLs\&. 
+.PP
+\fBParâmetros:\fP
+.RS 4
+\fIvarad\fP - Variancia Aditiva fornecida pelo usuario; 
+.br
+\fIqtdlocos\fP - Quantidade de Locos Poligenicos que irao formar o genoma do individuo; 
+.br
+\fIqtdqtl\fP - Quantidade de Locos QTLs que irao formar o genoma do individuo; 
+.br
+\fIqtdmarcador\fP - Quantidade de Locos Marcadores no genoma de cada individuo; 
+.br
+\fIfreqpqtl\fP - Frequencia alelica (p) dos locos QTLs (atribui-se a mesma frequencia para todos os locos); 
+.br
+\fIpvaqtl\fP - Proporcao da variancia aditiva que eh explicada pelos QTLs\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para LZ5 a partir do código fonte\&.

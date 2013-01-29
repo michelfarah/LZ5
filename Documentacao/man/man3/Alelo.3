@@ -1,0 +1,61 @@
+.TH "Alelo" 3 "Terça, 29 de Janeiro de 2013" "Version lz5_turbo" "LZ5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Alelo \- 
+.PP
+Classe para criar um \fBAlelo\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <alelo\&.h>\fP
+.PP
+Herdado por \fBAleloId\fP\&.
+.SS "Membros públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBAlelo\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAlelo\fP ()"
+.br
+.ti -1c
+.RI "bool \fBgetAlelo\fP ()"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Classe para criar um \fBAlelo\fP\&. 
+
+A classe \fBAlelo\fP tem como funcao representar um alelo na forma mais simples, podendo ser 0 ou 1, esta classe apenas representa o estado do alelo, sem armazenar valores ou efeitos para este\&. Esta eh uma classe base e, dependendo do tipo de simulacao pode-se usar a classe derivada \fBAleloId\fP\&. 
+.PP
+\fBAutor:\fP
+.RS 4
+Michel Marques Farah e Ricardo da Fonseca 
+.RE
+.PP
+\fBDesde:\fP
+.RS 4
+20/09/2012 
+.RE
+.PP
+\fBVersão:\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+
+.SH "Documentação dos Construtores & Destrutor"
+.PP 
+.SS "\fBAlelo::Alelo\fP ()\fC [inline]\fP"armazena o estado do alelo, um valor bool indicando apenas se é FALSE ou TRUE Por padrao o estado inicial do \fBAlelo\fP sempre é FALSE, sempre que chamado o metodo \fBsetAlelo()\fP o estado do alelo se transforma para TRUE 
+.SH "Documentação dos métodos"
+.PP 
+.SS "bool \fBAlelo::getAlelo\fP ()\fC [inline]\fP"Retorna o estado atual do \fBAlelo\fP 
+.SS "void \fBAlelo::setAlelo\fP ()\fC [inline]\fP"Altera o estado do \fBAlelo\fP de FALSE para TRUE 
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para LZ5 a partir do código fonte\&.

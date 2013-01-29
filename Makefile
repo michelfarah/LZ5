@@ -1,97 +1,33 @@
-sources = parameters.cpp locus.cpp chromosome.cpp genome.cpp individual.cpp population.cpp sel.cpp indSel.cpp ranSel.cpp tandem.cpp indSelRepo.cpp popRepo.cpp indRepo.cpp genomeRepo.cpp tandemRepo.cpp Lz5_Commands_db.cpp Lz5_Interpreter.cpp prompt.cpp repSim.cpp lz5.cpp parRepo.cpp
-objects = parameters.o locus.o chromosome.o genome.o individual.o population.o sel.o ranSel.o indSel.o indSelRepo.o popRepo.o indRepo.o genomeRepo.o tandemRepo.o Lz5_Commands_db.o Lz5_Interpreter.o prompt.o repSim.o lz5.o baseReport.o parRepo.o
+sources = alelo.cpp loco.cpp individuo.cpp geracao.cpp populacao.cpp lz5.cpp 
+objects = alelo.o loco.o individuo.o geracao.o populacao.o lz5.o
 
 simulator: $(objects)
 	g++ $(objects) -lgsl -lgslcblas -lm -g -static -o lz5
 	echo "Makefile para Linux"
 
-parameters.o: $(sources)
-	echo "Compilando parameters.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
+alelo.o: $(sources)
+	echo "Compilando alelo.cpp" 
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings $(sources)
 
-locus.o: $(sources)
-	echo "Compilando locus.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
+loco.o: $(sources)
+	echo "Compilando loco.cpp" 
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings $(sources)
 
-chromosome.o: $(sources)
-	echo "Compilando chromosome.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
+individuo.o: $(sources)
+	echo "Compilando individuo.cpp" 
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings $(sources)
 
-genome.o: $(sources)
-	echo "Compilando genome.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
+geracao.o: $(sources)
+	echo "Compilando geracao.cpp" 
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings $(sources)
 
-individual.o: $(sources)
-	echo "Compilando individual.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-population.o: $(sources)	
-	echo "Compilando population.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-sel.o: $(sources)
-	echo "Compilando population.cpp"
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-ranSel.o: $(sources)	
-	echo "Compilando ranSel.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-indSel.o: $(sources)	
-	echo "Compilando indSel.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-tandem.o: $(sources)
-	echo "Compilando tandem.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-baseReport.o: $(sources)		
-	echo "Compilando baseReport.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-parRepo.o: $(sources)
-	echo "Compilando parRepo.cpp"
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-indSelrepo.o: $(sources)		
-	echo "Compilando indSelrepo.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-popRepo.o: $(sources)		
-	echo "Compilando popRepo.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-indRepo.o: $(sources)		
-	echo "Compilando indRepo.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-genomeRepo.o: $(sources)		
-	echo "Compilando genomeRepo.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-tandemRepo.o: $(sources)		
-	echo "Compilando tandemRepo.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-Lz5_Commands_db.o: $(sources)
-	echo "Compilando Lz5_Commands_db.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-Lz5_Interpreter.o: $(sources)
-	echo "Compilando Interpreter.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-prompt.o: $(sources)
-	echo "Compilando prompt.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
-
-repSim.o: $(sources)
-	echo "Compilando repSim.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
+populacao.o: $(sources)
+	echo "Compilando populacao.cpp" 
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings $(sources)
 
 lz5.o: $(sources)
 	echo "Compilando lz5.cpp" 
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++ $(sources)
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings $(sources)
 
 
 gdb: simulagdb
@@ -102,7 +38,7 @@ simulagdb:$(objects)
 
 locusgdb.o: lz5.cpp
 	echo "Compilando lz5.cpp"
-	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings -Weffc++  lz5.cpp
+	g++ -g -c -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings  lz5.cpp
 
 
 

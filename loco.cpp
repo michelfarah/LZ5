@@ -57,19 +57,19 @@ void Loco::setLoco(bool tipo){
       }
     }
   }
-};
+}
 
 void Loco::setVGLPol(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp,float pvaqtl){
   vglpol[0]=-sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador)));
   vglpol[1]=0;
   vglpol[2]=sqrt((varad*(1-(pvaqtl/100)))/(2*freqp*(1-freqp)*(qtdlocos-qtdqtl-qtdmarcador))); 
-};
+}
 
-void Loco::setVGLQTL(float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqpqtl,float pvaqtl){
+void Loco::setVGLQTL(float varad, unsigned int qtdqtl, float freqpqtl,float pvaqtl){
   vglqtl[0]=-sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
   vglqtl[1]=0;
   vglqtl[2]=sqrt((varad*(pvaqtl/100)))/(2*freqpqtl*(1-freqpqtl)*(qtdqtl));
-};
+}
 
 
 float Loco::vglpol[3];

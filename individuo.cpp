@@ -79,7 +79,7 @@ void Individuo::setGenoma(bool tipoid)
     ptrloco->setLoco(tipoid);
     genoma.push_back(ptrloco);
   }
-};
+}
 
 void Individuo::setTamCrom(unsigned int qtdlocos, unsigned int qtdcrom)
 {
@@ -88,18 +88,20 @@ void Individuo::setTamCrom(unsigned int qtdlocos, unsigned int qtdcrom)
   for(unsigned int i=0;i<=pos;i++){
     tamCrom.push_back(tamCrom[i]+qtdcrom);
   }
-};
+}
 
 void Individuo::setposTLocos(unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float varad, float freqp, float freqpqtl, float pvaqtl)
 {
 
   Loco l;
   l.setVGLPol(varad, qtdlocos, qtdqtl, qtdmarcador, freqp, pvaqtl);
-  l.setVGLQTL(varad, qtdlocos, qtdqtl, qtdmarcador, freqpqtl, pvaqtl);
+  l.setVGLQTL(varad, qtdqtl, freqpqtl, pvaqtl);
 
+  /* Cria um vetor com todos os locos poligenicos */
   for (unsigned int i=0;i<qtdlocos;i++){
     posTLocos.push_back(0);
   }
+  /* Se a simulacao tiver locos QTL, o simulador amostra uma posicao dentro do genoma e atribui 1 para indicar QTL */
   if(qtdqtl>0){
     for (unsigned int i=0;i<qtdqtl;i++){
       int q = gsl_rng_uniform_int(p,qtdlocos);
@@ -110,7 +112,7 @@ void Individuo::setposTLocos(unsigned int qtdlocos, unsigned int qtdqtl, unsigne
       }
     }
   }
-  gsl_rng_set(p,time(0));
+  /* Se a simulacao tiver locos marcadores, o simulador amostra uma posicao dentro do genoma e atribui 2 para indicar que e loco marcador */
   for (unsigned int i=0;i<qtdmarcador;i++){
     int q = gsl_rng_uniform_int(p,qtdlocos);
     if(posTLocos[q]==0){
@@ -119,7 +121,7 @@ void Individuo::setposTLocos(unsigned int qtdlocos, unsigned int qtdqtl, unsigne
       i--;
     }
   }
-};
+}
 
 vector <unsigned int>Individuo::posTLocos;
 unsigned int Individuo::cont_id=1;

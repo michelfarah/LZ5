@@ -1,0 +1,190 @@
+\hypertarget{class_loco}{\section{\-Referência à classe \-Loco}
+\label{class_loco}\index{\-Loco@{\-Loco}}
+}
+
+
+\-Classe para criar um \hyperlink{class_loco}{\-Loco} a partir de 2 \-Alelos.  
+
+
+
+
+{\ttfamily \#include $<$loco.\-h$>$}
+
+\subsection*{\-Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_loco_ac76b405e7b9a8b427f13c92e21dbb749}{\-Loco} ()
+\item 
+vector$<$ \hyperlink{class_alelo}{\-Alelo} $\ast$ $>$ \hyperlink{class_loco_a710976ac6340a8a4eae1509ddb622f99}{get\-Loco} ()
+\item 
+float \hyperlink{class_loco_a2f83ae2640e39e14a994d244f3878029}{get\-V\-G\-Lpol} (unsigned int i)
+\item 
+float \hyperlink{class_loco_a110a570e49a0007ffc6dc5a4269a11aa}{get\-V\-G\-L\-Q\-T\-L} (unsigned int i)
+\item 
+void \hyperlink{class_loco_a17e42d11b5d0f86797f942742c476f04}{set\-Loco} (bool tipo)
+\item 
+void \hyperlink{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{set\-V\-G\-L\-Pol} (float varad, unsigned int qtdlocos, unsigned int qtdqtl, unsigned int qtdmarcador, float freqp, float pvaqtl)
+\item 
+void \hyperlink{class_loco_a0a3371328be88138be0386897264931e}{set\-V\-G\-L\-Q\-T\-L} (float varad, unsigned int qtdlqtl, float freqpqtl, float pvaqtl)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Descrição detalhada}
+\-Classe para criar um \hyperlink{class_loco}{\-Loco} a partir de 2 \-Alelos. 
+
+\-A \-Classe \hyperlink{class_loco}{\-Loco} tem como funcao armazenar o genotipo (configuracao alelica) de cada loco que ira compor um individuo, nao importando o tipo de loco (marcador, \-Q\-T\-L ou poligenico). \begin{DoxyAuthor}{\-Autor}
+\-Michel \-Marques \-Farah e \-Ricardo da \-Fonseca 
+\end{DoxyAuthor}
+\begin{DoxySince}{\-Desde}
+20/09/2012 
+\end{DoxySince}
+\begin{DoxyVersion}{\-Versão}
+1.\-1 
+\end{DoxyVersion}
+
+
+\subsection{\-Documentação dos \-Construtores \& \-Destrutor}
+\hypertarget{class_loco_ac76b405e7b9a8b427f13c92e21dbb749}{\index{\-Loco@{\-Loco}!\-Loco@{\-Loco}}
+\index{\-Loco@{\-Loco}!Loco@{\-Loco}}
+\subsubsection[{\-Loco}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Loco\-::\-Loco} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_loco_ac76b405e7b9a8b427f13c92e21dbb749}
+\-Cria um objeto \-Genotipo vazio. 
+
+\subsection{\-Documentação dos métodos}
+\hypertarget{class_loco_a710976ac6340a8a4eae1509ddb622f99}{\index{\-Loco@{\-Loco}!get\-Loco@{get\-Loco}}
+\index{get\-Loco@{get\-Loco}!Loco@{\-Loco}}
+\subsubsection[{get\-Loco}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Alelo}$\ast$$>$ {\bf \-Loco\-::get\-Loco} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_loco_a710976ac6340a8a4eae1509ddb622f99}
+\-Retorna um vetor com 2 poteiros para dois objetos \hyperlink{class_alelo}{\-Alelo} \hypertarget{class_loco_a2f83ae2640e39e14a994d244f3878029}{\index{\-Loco@{\-Loco}!get\-V\-G\-Lpol@{get\-V\-G\-Lpol}}
+\index{get\-V\-G\-Lpol@{get\-V\-G\-Lpol}!Loco@{\-Loco}}
+\subsubsection[{get\-V\-G\-Lpol}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Loco\-::get\-V\-G\-Lpol} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_loco_a2f83ae2640e39e14a994d244f3878029}
+\-Metodo para retornar a contribuicao dos locos poligenicos dependendo da sua configuracao alelica 
+\begin{DoxyParams}{\-Parâmetros}
+{\em i} & -\/ indice que indica a posição no array de contribuicao dos locos poligenicos \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_loco_a110a570e49a0007ffc6dc5a4269a11aa}{\index{\-Loco@{\-Loco}!get\-V\-G\-L\-Q\-T\-L@{get\-V\-G\-L\-Q\-T\-L}}
+\index{get\-V\-G\-L\-Q\-T\-L@{get\-V\-G\-L\-Q\-T\-L}!Loco@{\-Loco}}
+\subsubsection[{get\-V\-G\-L\-Q\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Loco\-::get\-V\-G\-L\-Q\-T\-L} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{class_loco_a110a570e49a0007ffc6dc5a4269a11aa}
+\-Metodo para retornar a contribuicao dos locos \-Q\-T\-Ls dependendo da sua configuracao alelica 
+\begin{DoxyParams}{\-Parâmetros}
+{\em i} & -\/ indice que indica a posição no array de contribuicao dos locos \-Q\-T\-Ls \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_loco_a17e42d11b5d0f86797f942742c476f04}{\index{\-Loco@{\-Loco}!set\-Loco@{set\-Loco}}
+\index{set\-Loco@{set\-Loco}!Loco@{\-Loco}}
+\subsubsection[{set\-Loco}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Loco\-::set\-Loco} (
+\begin{DoxyParamCaption}
+\item[{bool}]{tipo}
+\end{DoxyParamCaption}
+)}}\label{class_loco_a17e42d11b5d0f86797f942742c476f04}
+\-Metodo para ajustar a configuracao do loco 
+\begin{DoxyParams}{\-Parâmetros}
+{\em tipo} & -\/ bool para indicar se ira criar um objeto do tipo \hyperlink{class_alelo}{\-Alelo} (\-F\-A\-L\-S\-E) ou do tipo \hyperlink{class_alelo_id}{\-Alelo\-Id} (\-T\-R\-U\-E) \\
+\hline
+\end{DoxyParams}
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_loco_a17e42d11b5d0f86797f942742c476f04_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}{\index{\-Loco@{\-Loco}!set\-V\-G\-L\-Pol@{set\-V\-G\-L\-Pol}}
+\index{set\-V\-G\-L\-Pol@{set\-V\-G\-L\-Pol}!Loco@{\-Loco}}
+\subsubsection[{set\-V\-G\-L\-Pol}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Loco\-::set\-V\-G\-L\-Pol} (
+\begin{DoxyParamCaption}
+\item[{float}]{varad, }
+\item[{unsigned int}]{qtdlocos, }
+\item[{unsigned int}]{qtdqtl, }
+\item[{unsigned int}]{qtdmarcador, }
+\item[{float}]{freqp, }
+\item[{float}]{pvaqtl}
+\end{DoxyParamCaption}
+)}}\label{class_loco_a350c5bd93d8ca9d4f312555e27891bf4}
+\-Metodo para ajustar o vetor static de contribuicao dos locos poligenicos. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em varad} & -\/ \-Variancia \-Aditiva fornecida pelo usuario; \\
+\hline
+{\em qtdlocos} & -\/ \-Quantidade de \-Locos \-Poligenicos que irao formar o genoma do individuo; \\
+\hline
+{\em qtdqtl} & -\/ \-Quantidade de \-Locos \-Q\-T\-Ls que irao formar o genoma do individuo; \\
+\hline
+{\em qtdmarcador} & -\/ \-Quantidade de \-Locos \-Marcadores no genoma de cada individuo; \\
+\hline
+{\em freqp} & -\/ \-Frequencia alelica (p) dos locos poligenicos (atribui-\/se a mesma frequencia para todos os locos poligenicos); \\
+\hline
+{\em pvaqtl} & -\/ \-Proporcao da variancia aditiva que eh explicada pelos \-Q\-T\-Ls. \\
+\hline
+\end{DoxyParams}
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_loco_a350c5bd93d8ca9d4f312555e27891bf4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_loco_a0a3371328be88138be0386897264931e}{\index{\-Loco@{\-Loco}!set\-V\-G\-L\-Q\-T\-L@{set\-V\-G\-L\-Q\-T\-L}}
+\index{set\-V\-G\-L\-Q\-T\-L@{set\-V\-G\-L\-Q\-T\-L}!Loco@{\-Loco}}
+\subsubsection[{set\-V\-G\-L\-Q\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Loco\-::set\-V\-G\-L\-Q\-T\-L} (
+\begin{DoxyParamCaption}
+\item[{float}]{varad, }
+\item[{unsigned int}]{qtdlqtl, }
+\item[{float}]{freqpqtl, }
+\item[{float}]{pvaqtl}
+\end{DoxyParamCaption}
+)}}\label{class_loco_a0a3371328be88138be0386897264931e}
+\-Metodo para ajustar o vetor static de contribuicao dos locos \-Q\-T\-Ls. 
+\begin{DoxyParams}{\-Parâmetros}
+{\em varad} & -\/ \-Variancia \-Aditiva fornecida pelo usuario; \\
+\hline
+{\em qtdlocos} & -\/ \-Quantidade de \-Locos \-Poligenicos que irao formar o genoma do individuo; \\
+\hline
+{\em qtdqtl} & -\/ \-Quantidade de \-Locos \-Q\-T\-Ls que irao formar o genoma do individuo; \\
+\hline
+{\em qtdmarcador} & -\/ \-Quantidade de \-Locos \-Marcadores no genoma de cada individuo; \\
+\hline
+{\em freqpqtl} & -\/ \-Frequencia alelica (p) dos locos \-Q\-T\-Ls (atribui-\/se a mesma frequencia para todos os locos); \\
+\hline
+{\em pvaqtl} & -\/ \-Proporcao da variancia aditiva que eh explicada pelos \-Q\-T\-Ls. \\
+\hline
+\end{DoxyParams}
+
+
+\-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_loco_a0a3371328be88138be0386897264931e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\-A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{loco_8h}{loco.\-h}\item 
+/home/michel/workspace/\-L\-Z5/\hyperlink{loco_8cpp}{loco.\-cpp}\end{DoxyCompactItemize}
