@@ -59,7 +59,7 @@ void Geracao::setVaradg(){
   for(unsigned int i=0;i<geracao.size();i++){
     sum=pow((geracao[i]->getVad()-media),2)+sum;
   }
-  varadg=sum/geracao.size()-1;
+  varadg=sum/(geracao.size()-1);
 }
 
 void Geracao::setVarresg(){
@@ -72,7 +72,7 @@ void Geracao::setVarresg(){
   for(unsigned int i=0;i<geracao.size();i++){
     sum=pow((geracao[i]->getVres()-media),2)+sum;
   }
-  varresg=sum/geracao.size()-1;
+  varresg=sum/(geracao.size()-1);
 }
 
 unsigned int Geracao::contg=-1;
